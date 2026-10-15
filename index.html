@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pondok Pesantren Kyai Parak Bambu Runcing — Parakan, Temanggung</title>
+
+  <!-- Google Fonts: Lora (Headline), Amiri (Kaligrafi/Turats), Plus Jakarta Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kiswah: {
+              950: '#051811',
+              900: '#08261c',
+              800: '#0e382a',
+              700: '#164e3b',
+              600: '#236850',
+            },
+            turats: {
+              50: '#fbf8f1',
+              100: '#f4ebd9',
+              200: '#eadbc0',
+              300: '#dcc59e',
+            },
+            kuningan: {
+              300: '#e8cb7a',
+              400: '#d6b154',
+              500: '#c59638',
+              600: '#a37722',
+              700: '#7d5916',
+            },
+            jati: {
+              900: '#1c140d',
+              800: '#2d2015',
+            }
+          },
+          fontFamily: {
+            serif: ['"Lora"', 'Georgia', 'serif'],
+            arabic: ['"Amiri"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'ornate': '0 15px 40px -10px rgba(8, 38, 28, 0.14), 0 0 0 1px rgba(197, 150, 56, 0.35)',
+            'ornate-dark': '0 20px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(214, 177, 84, 0.35)',
+            'gold-glow': '0 0 25px rgba(197, 150, 56, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Polesan Pola Geometris Islam & Kertas Kitab Turats */
+    body {
+      background-color: #f4ebd9;
+      color: #1c140d;
+      overflow-x: hidden;
+    }
+
+    /* Pola Arabesque / Bintang Delapan Sudut Halus */
+    .bg-arabesque-light {
+      background-color: #f4ebd9;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c59638' stroke-width='0.6' stroke-opacity='0.18'%3E%3Cpath d='M40 0L48 32L80 40L48 48L40 80L32 48L0 40L32 32Z'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Crect x='14' y='14' width='52' height='52' transform='rotate(45 40 40)'/%3E%3Crect x='14' y='14' width='52' height='52'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .bg-arabesque-dark {
+      background-color: #08261c;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d6b154' stroke-width='0.6' stroke-opacity='0.12'%3E%3Cpath d='M40 0L48 32L80 40L48 48L40 80L32 48L0 40L32 32Z'/%3E%3Ccircle cx='40' cy='40' r='18'/%3E%3Crect x='14' y='14' width='52' height='52' transform='rotate(45 40 40)'/%3E%3Crect x='14' y='14' width='52' height='52'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Bingkai Halaman Kitab Kuning (Double Border + Inner Offset) */
+    .kitab-frame {
+      position: relative;
+      border: 1.5px solid #c59638;
+      box-shadow: inset 0 0 0 5px #f4ebd9, inset 0 0 0 6px rgba(197, 150, 56, 0.55);
+    }
+
+    .kitab-frame-dark {
+      position: relative;
+      border: 1.5px solid rgba(214, 177, 84, 0.6);
+      box-shadow: inset 0 0 0 5px #08261c, inset 0 0 0 6px rgba(214, 177, 84, 0.35);
+    }
+
+    /* Ornamen Sudut Bingkai */
+    .corner-ornament {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: #c59638;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .corner-tl { top: 4px; left: 4px; border-top: 2.5px solid; border-left: 2.5px solid; }
+    .corner-tr { top: 4px; right: 4px; border-top: 2.5px solid; border-right: 2.5px solid; }
+    .corner-bl { bottom: 4px; left: 4px; border-bottom: 2.5px solid; border-left: 2.5px solid; }
+    .corner-br { bottom: 4px; right: 4px; border-bottom: 2.5px solid; border-right: 2.5px solid; }
+
+    /* Bentuk Lengkung Kubah / Mihrab */
+    .mihrab-arch {
+      border-top-left-radius: 9999px;
+      border-top-right-radius: 9999px;
+    }
+
+    .mihrab-card {
+      border-top-left-radius: 140px;
+      border-top-right-radius: 140px;
+    }
+
+    /* Drop Cap Klasik */
+    .drop-cap::first-letter {
+      float: left;
+      font-family: 'Lora', serif;
+      font-size: 4.2rem;
+      line-height: 0.85;
+      padding-top: 4px;
+      padding-right: 14px;
+      padding-bottom: 4px;
+      color: #08261c;
+      font-weight: 700;
+      text-shadow: 2px 2px 0px #d6b154;
+    }
+
+    /* Scrollbar Kustom */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #051811;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c59638;
+      border: 2px solid #051811;
+      border-radius: 4px;
+    }
+  </style>
+
+  <style id="submenu-css">
+    /* ===== Sub menu (dropdown desktop + akordeon mobile) ===== */
+    .dd { position: relative; }
+    .dd-btn { white-space: nowrap; display: inline-flex; align-items: center; gap: .35rem; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; letter-spacing: inherit; }
+    .dd-chev { opacity: .65; transition: transform .25s ease; flex: none; }
+    .dd-panel { position: absolute; top: 100%; left: 50%; padding-top: var(--dd-gap, 18px); z-index: 90;
+      opacity: 0; visibility: hidden; transform: translate(calc(-50% + var(--dd-shift, 0px)), 8px); transition: opacity .18s ease, transform .25s cubic-bezier(.2,.7,.2,1), visibility .25s; }
+    .dd-panel.dd-right { left: auto; right: -16px; transform: translate(var(--dd-shift, 0px), 8px); }
+    .dd.open > .dd-panel { opacity: 1; visibility: visible; transform: translate(calc(-50% + var(--dd-shift, 0px)), 0); }
+    .dd.open > .dd-panel.dd-right { transform: translate(var(--dd-shift, 0px), 0); }
+    .dd.open .dd-chev { transform: rotate(180deg); }
+    @media (hover: hover) {
+      .dd:hover > .dd-panel { opacity: 1; visibility: visible; transform: translate(calc(-50% + var(--dd-shift, 0px)), 0); }
+      .dd:hover > .dd-panel.dd-right { transform: translate(var(--dd-shift, 0px), 0); }
+      .dd:hover .dd-chev { transform: rotate(180deg); }
+    }
+    .m-acc .m-chev { transition: transform .25s ease; }
+    .m-acc[aria-expanded="true"] .m-chev { transform: rotate(180deg); }
+    #pageToast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 9999; transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+      background: #1c2421; color: #faf8f4; font: 500 14px/1.4 system-ui, sans-serif; padding: 12px 18px; border-radius: 999px; box-shadow: 0 12px 30px -10px rgba(0,0,0,.45); transition: opacity .25s ease, transform .25s ease; max-width: calc(100vw - 32px); text-align: center; }
+    #pageToast.show { opacity: 1; transform: translate(-50%, 0); }
+    #pageToast code { color: #d6b565; font-family: ui-monospace, monospace; }
+    @media (prefers-reduced-motion: reduce) { .dd-panel, .dd-chev, .m-chev, #pageToast { transition: none !important; } }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-kuningan-500 selection:text-kiswah-950">
+
+  <!-- =====================================================================
+       TOP ORNAMENTAL BAR (MAKLUMAT & KALIGRAFI)
+  ====================================================================== -->
+  <div class="bg-kiswah-950 text-turats-200 border-b border-kuningan-500/40 text-xs py-2 px-4 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="text-kuningan-400"><i class="fa-solid fa-mosque"></i></span>
+        <span class="tracking-wider uppercase text-[11px] font-medium text-turats-100">
+          Kawasan Heritage Bambu Runcing — Kauman, Parakan, Temanggung
+        </span>
+      </div>
+      <div class="hidden md:flex items-center gap-6">
+        <span class="font-arabic text-base text-kuningan-300 tracking-wide">
+          بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۞ المعهد الإسلامي السلفي كيائي باراك بامبو رونتشينج
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <span class="text-kuningan-400 font-semibold">NSPP: 510033230019</span>
+        <span class="hidden sm:inline text-turats-300">|</span>
+        <a href="#psb" class="hidden sm:inline-flex items-center gap-1 text-kuningan-300 hover:text-white transition">
+          <i class="fa-solid fa-scroll text-[10px]"></i> Maklumat Sowan PSB 2026
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       2. HEADER: FLOATING GLASSMORPHISM NAVBAR DENGAN AKSEN EMAS KERATON
+  ====================================================================== -->
+  <header id="navbar" class="sticky top-0 z-50 transition-all duration-300 bg-[#fbf8f1]/90 backdrop-blur-md border-b-2 border-kuningan-500/50 shadow-md">
+    <!-- Garis Ornamen Tipis Atas -->
+    <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-kuningan-500 to-transparent opacity-60"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Sisi Kiri: Monogram "KP" & Tipografi -->
+      <a href="#beranda" class="flex items-center gap-3.5 group">
+        <div class="relative w-12 h-12 rounded-full bg-kiswah-900 border-2 border-kuningan-500 flex items-center justify-center shadow-md group-hover:scale-105 transition">
+          <div class="absolute inset-1 rounded-full border border-kuningan-400/50 border-dashed"></div>
+          <span class="font-serif font-bold text-lg text-kuningan-300 tracking-tighter">KP</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-xl sm:text-2xl text-kiswah-950 leading-none tracking-tight">
+            Kyai Parak
+          </span>
+          <span class="font-sans text-[10px] font-bold tracking-[0.28em] text-kuningan-700 uppercase mt-1">
+            BAMBU RUNCING
+          </span>
+        </div>
+      </a>
+
+      <!-- Tengah: Navigasi Desktop -->
+      <nav class="hidden xl:flex items-center gap-6 text-[13px] font-semibold text-kiswah-950">
+        <a href="#beranda" class="hover:text-kuningan-600 transition py-1 border-b-2 border-kuningan-500">Beranda</a>
+        <div class="dd" data-dd style="--dd-gap:26px"><button type="button" class="dd-btn hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400" aria-expanded="false" aria-controls="dd-tentang">Tentang Kami<svg class="dd-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div id="dd-tentang" class="dd-panel" role="region" aria-label="Sub menu Tentang Pondok"><div class="w-[310px] rounded-xl border-2 border-kuningan-500/60 bg-turats-50 p-2 text-left font-sans shadow-ornate"><a data-page href="/tentang-pondok/" class="flex items-center justify-between gap-4 rounded-lg bg-kiswah-900 px-4 py-3 text-turats-50 transition hover:bg-kiswah-800"><span><span class="block font-serif text-[16px] font-bold">Tentang Pondok</span><span class="mt-0.5 block text-[12.5px] font-medium text-turats-200">Profil, visi, dan nilai pondok</span></span><i class="fa-solid fa-arrow-right text-[11px] text-kuningan-300" aria-hidden="true"></i></a><ul class="mt-1 grid gap-0.5 "><li><a data-page href="/tentang-pondok/sejarah/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Sejarah dan Muassis</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Jejak perjuangan sejak 1965</span></a></li><li><a data-page href="/tentang-pondok/pengasuh-pengurus/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Pengasuh dan Pengurus</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Dewan masyayikh &amp; struktur pengurus</span></a></li></ul></div></div></div>
+        <div class="dd" data-dd style="--dd-gap:26px"><button type="button" class="dd-btn hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400" aria-expanded="false" aria-controls="dd-pendidikan">Pendidikan<svg class="dd-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div id="dd-pendidikan" class="dd-panel" role="region" aria-label="Sub menu Semua Program"><div class="w-[min(92vw,540px)] rounded-xl border-2 border-kuningan-500/60 bg-turats-50 p-2 text-left font-sans shadow-ornate"><a data-page href="/program/" class="flex items-center justify-between gap-4 rounded-lg bg-kiswah-900 px-4 py-3 text-turats-50 transition hover:bg-kiswah-800"><span><span class="block font-serif text-[16px] font-bold">Semua Program</span><span class="mt-0.5 block text-[12.5px] font-medium text-turats-200">Empat jalur pendidikan pondok</span></span><i class="fa-solid fa-arrow-right text-[11px] text-kuningan-300" aria-hidden="true"></i></a><ul class="mt-1 grid gap-0.5 sm:grid-cols-2"><li><a data-page href="/program/madrasah-manbaul-falah/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Madrasah Manba&#x27;ul Falah</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Kitab kuning &amp; adab salaf</span></a></li><li><a data-page href="/program/tahfidzul-quran/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Tahfidzul Qur&#x27;an</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Hafalan bersanad &amp; murajaah</span></a></li><li><a data-page href="/program/pkpps/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">PKPPS</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Ijazah setara SMP &amp; SMA</span></a></li><li><a data-page href="/program/lgbr/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">LGBR</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Laskar Garuda Bambu Runcing</span></a></li></ul></div></div></div>
+        <div class="dd" data-dd style="--dd-gap:26px"><button type="button" class="dd-btn hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400" aria-expanded="false" aria-controls="dd-kehidupan">Kehidupan Santri<svg class="dd-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div id="dd-kehidupan" class="dd-panel" role="region" aria-label="Sub menu Kehidupan Santri"><div class="w-[310px] rounded-xl border-2 border-kuningan-500/60 bg-turats-50 p-2 text-left font-sans shadow-ornate"><a data-page href="/kehidupan-santri/" class="flex items-center justify-between gap-4 rounded-lg bg-kiswah-900 px-4 py-3 text-turats-50 transition hover:bg-kiswah-800"><span><span class="block font-serif text-[16px] font-bold">Kehidupan Santri</span><span class="mt-0.5 block text-[12.5px] font-medium text-turats-200">Ritme harian di pondok</span></span><i class="fa-solid fa-arrow-right text-[11px] text-kuningan-300" aria-hidden="true"></i></a><ul class="mt-1 grid gap-0.5 "><li><a data-page href="/kehidupan-santri/fasilitas/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Fasilitas</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Asrama, masjid, dan sarana belajar</span></a></li><li><a data-page href="/kehidupan-santri/panduan-wali/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Panduan Wali Santri</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Sambang, perizinan, dan adab</span></a></li></ul></div></div></div>
+        <a href="#agenda" class="hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400">Agenda</a>
+        <div class="dd" data-dd style="--dd-gap:26px"><button type="button" class="dd-btn hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400" aria-expanded="false" aria-controls="dd-kabar">Kabar<svg class="dd-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div id="dd-kabar" class="dd-panel" role="region" aria-label="Sub menu Kabar dan Karya"><div class="w-[310px] rounded-xl border-2 border-kuningan-500/60 bg-turats-50 p-2 text-left font-sans shadow-ornate"><a data-page href="/kabar-karya/" class="flex items-center justify-between gap-4 rounded-lg bg-kiswah-900 px-4 py-3 text-turats-50 transition hover:bg-kiswah-800"><span><span class="block font-serif text-[16px] font-bold">Kabar dan Karya</span><span class="mt-0.5 block text-[12.5px] font-medium text-turats-200">Berita pondok &amp; tulisan santri</span></span><i class="fa-solid fa-arrow-right text-[11px] text-kuningan-300" aria-hidden="true"></i></a><ul class="mt-1 grid gap-0.5 "><li><a data-page href="/galeri/" class="block rounded-lg px-4 py-2.5 transition hover:bg-turats-100"><span class="block font-serif text-[15px] font-bold text-kiswah-950">Galeri</span><span class="mt-0.5 block text-[12.5px] font-medium leading-snug text-kuningan-700">Dokumentasi foto kegiatan</span></a></li></ul></div></div></div>
+        <a href="#psb" class="hover:text-kuningan-600 transition py-1 border-b-2 border-transparent hover:border-kuningan-400">Pendaftaran</a>
+      </nav>
+
+      <!-- Sisi Kanan: WhatsApp & CTA Pill -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#kontak" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full border border-kuningan-500/60 bg-turats-100/80 text-kiswah-900 hover:bg-kuningan-500/20 text-xs font-semibold transition">
+          <i class="fa-brands fa-whatsapp text-emerald-700 text-base"></i>
+          <span>Hubungi Kami</span>
+        </a>
+        <a href="#psb" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#34735e] hover:bg-kiswah-800 text-white text-xs font-bold tracking-wider uppercase shadow-[0_0_20px_rgba(52,115,94,0.5)] border border-kuningan-400/60 transition transform hover:-translate-y-0.5">
+          <span>Daftar 2026</span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-kuningan-300"></i>
+        </a>
+      </div>
+
+      <!-- Tombol Mobile Hamburger -->
+      <button id="mobile-menu-btn" class="xl:hidden w-11 h-11 rounded-lg border border-kuningan-500/60 bg-turats-100 text-kiswah-950 flex items-center justify-center text-lg">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="hidden xl:hidden bg-turats-100 border-b-4 border-kuningan-500 px-6 py-6 shadow-2xl">
+      <div class="flex flex-col space-y-3 text-sm font-semibold text-kiswah-950">
+        <a href="#beranda" class="mobile-link py-2 border-b border-kuningan-500/20 flex justify-between items-center"><span>Beranda</span><span class="text-kuningan-600">۞</span></a>
+        <div><button type="button" class="m-acc py-2 border-b border-kuningan-500/20 flex w-full justify-between items-center text-left " aria-expanded="false" aria-controls="m-tentang"><span>Tentang Kami &amp; Sejarah</span><span class="flex items-center gap-2"><span class="text-kuningan-600">۞</span><svg class="m-chev text-kuningan-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="m-tentang" hidden><ul class="mt-1 mb-2 space-y-0.5 border-l-2 border-kuningan-500/60 pl-4 text-[13.5px]"><li><a data-page href="/tentang-pondok/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Tentang Pondok</a></li><li><a data-page href="/tentang-pondok/sejarah/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Sejarah dan Muassis</a></li><li><a data-page href="/tentang-pondok/pengasuh-pengurus/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Pengasuh dan Pengurus</a></li></ul></div></div>
+        <div><button type="button" class="m-acc py-2 border-b border-kuningan-500/20 flex w-full justify-between items-center text-left " aria-expanded="false" aria-controls="m-pendidikan"><span>4 Jalur Pendidikan</span><span class="flex items-center gap-2"><span class="text-kuningan-600">۞</span><svg class="m-chev text-kuningan-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="m-pendidikan" hidden><ul class="mt-1 mb-2 space-y-0.5 border-l-2 border-kuningan-500/60 pl-4 text-[13.5px]"><li><a data-page href="/program/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Semua Program</a></li><li><a data-page href="/program/madrasah-manbaul-falah/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Madrasah Manba&#x27;ul Falah</a></li><li><a data-page href="/program/tahfidzul-quran/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Tahfidzul Qur&#x27;an</a></li><li><a data-page href="/program/pkpps/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">PKPPS</a></li><li><a data-page href="/program/lgbr/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">LGBR</a></li></ul></div></div>
+        <div><button type="button" class="m-acc py-2 border-b border-kuningan-500/20 flex w-full justify-between items-center text-left " aria-expanded="false" aria-controls="m-kehidupan"><span>Kehidupan Santri</span><span class="flex items-center gap-2"><span class="text-kuningan-600">۞</span><svg class="m-chev text-kuningan-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="m-kehidupan" hidden><ul class="mt-1 mb-2 space-y-0.5 border-l-2 border-kuningan-500/60 pl-4 text-[13.5px]"><li><a data-page href="/kehidupan-santri/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Kehidupan Santri</a></li><li><a data-page href="/kehidupan-santri/fasilitas/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Fasilitas</a></li><li><a data-page href="/kehidupan-santri/panduan-wali/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Panduan Wali Santri</a></li></ul></div></div>
+        <a href="#agenda" class="mobile-link py-2 border-b border-kuningan-500/20 flex justify-between items-center"><span>Agenda Selapanan & Haul</span><span class="text-kuningan-600">۞</span></a>
+        <div><button type="button" class="m-acc py-2 border-b border-kuningan-500/20 flex w-full justify-between items-center text-left " aria-expanded="false" aria-controls="m-kabar"><span>Kabar &amp; Karya Santri</span><span class="flex items-center gap-2"><span class="text-kuningan-600">۞</span><svg class="m-chev text-kuningan-600" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></button><div id="m-kabar" hidden><ul class="mt-1 mb-2 space-y-0.5 border-l-2 border-kuningan-500/60 pl-4 text-[13.5px]"><li><a data-page href="/kabar-karya/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Kabar dan Karya</a></li><li><a data-page href="/galeri/" class="block py-1.5 font-medium text-kiswah-800 hover:text-kuningan-700">Galeri</a></li></ul></div></div>
+        <a href="#psb" class="mobile-link py-2 border-b border-kuningan-500/20 flex justify-between items-center"><span>Pendaftaran (Alur Sowan)</span><span class="text-kuningan-600">۞</span></a>
+        <div class="pt-3 flex flex-col sm:flex-row gap-3">
+          <a href="#kontak" class="mobile-link flex-1 py-2.5 text-center rounded-full border border-kuningan-600 text-kiswah-900 font-bold text-xs">
+            <i class="fa-brands fa-whatsapp mr-1 text-emerald-700"></i> Hubungi Sekretariat
+          </a>
+          <a href="#psb" class="mobile-link flex-1 py-2.5 text-center rounded-full bg-[#34735e] text-white font-bold text-xs shadow-lg">
+            Daftar Santri 2026
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       3. HERO SECTION: KOMPOSISI SAMA (BACKGROUND + TEKS TENGAH),
+          DIPERKAYA BINGKAI ORNAMEN KERATON & SILUET MIHRAB
+  ====================================================================== -->
+  <section id="beranda" class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-8 py-24 overflow-hidden bg-[#0e1613]">
+    <!-- Background Image + Multi-Stop Dark Heritage Gradient -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?auto=format&fit=crop&w=2000&q=85"
+        alt="Arsitektur Pesantren Salaf Kyai Parak Bambu Runcing"
+        class="w-full h-full object-cover object-center scale-105 opacity-45"
+      />
+      <!-- Multi-stop dark forest & emerald overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#07140f]/90 via-[#0e1613]/75 to-[#06130e]/95"></div>
+      <!-- Vignette Radial -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#05110c_95%)]"></div>
+    </div>
+
+    <!-- Bingkai Ornamen Keraton / Kitab di Sekeliling Hero (Non-Minimalis) -->
+    <div class="absolute inset-4 sm:inset-8 border border-kuningan-400/35 pointer-events-none z-10 hidden sm:block">
+      <div class="absolute inset-1.5 border border-kuningan-400/20"></div>
+      <!-- Ornamen Sudut SVG Emas -->
+      <svg class="absolute top-0 left-0 w-16 h-16 text-kuningan-400/70" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M0 0 L100 0 L100 8 L28 8 C18 8 8 18 8 28 L8 100 L0 100 Z" />
+        <path d="M16 16 L60 16 L60 20 L20 20 L20 60 L16 60 Z" opacity="0.7"/>
+        <circle cx="28" cy="28" r="4" />
+      </svg>
+      <svg class="absolute top-0 right-0 w-16 h-16 text-kuningan-400/70 transform scale-x-[-1]" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M0 0 L100 0 L100 8 L28 8 C18 8 8 18 8 28 L8 100 L0 100 Z" />
+        <path d="M16 16 L60 16 L60 20 L20 20 L20 60 L16 60 Z" opacity="0.7"/>
+        <circle cx="28" cy="28" r="4" />
+      </svg>
+      <svg class="absolute bottom-0 left-0 w-16 h-16 text-kuningan-400/70 transform scale-y-[-1]" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M0 0 L100 0 L100 8 L28 8 C18 8 8 18 8 28 L8 100 L0 100 Z" />
+        <path d="M16 16 L60 16 L60 20 L20 20 L20 60 L16 60 Z" opacity="0.7"/>
+        <circle cx="28" cy="28" r="4" />
+      </svg>
+      <svg class="absolute bottom-0 right-0 w-16 h-16 text-kuningan-400/70 transform scale-[-1]" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M0 0 L100 0 L100 8 L28 8 C18 8 8 18 8 28 L8 100 L0 100 Z" />
+        <path d="M16 16 L60 16 L60 20 L20 20 L20 60 L16 60 Z" opacity="0.7"/>
+        <circle cx="28" cy="28" r="4" />
+      </svg>
+    </div>
+
+    <!-- Siluet Lengkung Mihrab Halus di Tengah -->
+    <div class="absolute inset-x-0 top-12 bottom-0 max-w-4xl mx-auto border-t border-x border-kuningan-400/15 mihrab-arch pointer-events-none z-10 hidden lg:block"></div>
+
+    <!-- KOMPOSISI ELEMEN UTAMA (DARI ATAS KE BAWAH SECARA SIMETRIS) -->
+    <div class="relative z-20 max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Kaligrafi Kecil di Atas Garis (Sentuhan Pesantren Klasik) -->
+      <div class="font-arabic text-kuningan-300/90 text-lg sm:text-xl mb-3 tracking-wider">
+        ۞ المحافظة على القديم الصالح والأخذ بالجديد الأصلح ۞
+      </div>
+
+      <!-- 1. Aksen Garis Horizontal Emas Tipis di Tengah -->
+      <div class="w-20 h-px bg-[#cfab55]/80 mb-5 relative flex items-center justify-center">
+        <span class="w-2 h-2 rotate-45 bg-[#cfab55]"></span>
+      </div>
+
+      <!-- 2. Kicker: "SEJAK TAHUN 1965" -->
+      <p class="font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] text-[#cfab55] mb-6">
+        SEJAK TAHUN 1965
+      </p>
+
+      <!-- 3. Headline Utama (Masif 5xl-7xl font Lora Serif) -->
+      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl text-[#faf8f4] font-medium leading-[1.14] tracking-tight mb-7 drop-shadow-[0_6px_25px_rgba(0,0,0,0.7)]">
+        Menjaga Sanad Salaf,<br />
+        <span class="italic font-light text-kuningan-300">Mewariskan Jiwa Perjuangan.</span>
+      </h1>
+
+      <!-- Ornamen Pembatas Kecil -->
+      <div class="flex items-center gap-3 text-kuningan-400/70 mb-6">
+        <span class="w-12 h-px bg-gradient-to-r from-transparent to-kuningan-400/70"></span>
+        <span class="text-xs">❖</span>
+        <span class="w-12 h-px bg-gradient-to-l from-transparent to-kuningan-400/70"></span>
+      </div>
+
+      <!-- 4. Deskripsi Ringkas -->
+      <p class="font-sans text-stone-300 font-light text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-14">
+        Pondok Pesantren Kyai Parak Bambu Runcing. Berakar pada tradisi salaf, kokoh dalam aqidah, dan membentuk santri yang siap berkhidmah untuk agama dan bangsa.
+      </p>
+
+      <!-- 5. Scroll Down Indicator -->
+      <a href="#stats-bar" class="group flex flex-col items-center gap-3 text-stone-300 hover:text-kuningan-300 transition">
+        <span class="font-sans text-[11px] uppercase tracking-[0.3em] text-kuningan-300/90">
+          JELAJAHI PESANTREN
+        </span>
+        <div class="w-8 h-12 rounded-full border border-kuningan-400/40 flex items-center justify-center bg-kiswah-950/50 group-hover:border-kuningan-400 transition">
+          <span class="text-kuningan-300 text-lg animate-bounce">↓</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. GOLDEN HIGHLIGHT & QUICK STATS BAR (PRASASTI KUNINGAN KERATON)
+  ====================================================================== -->
+  <section id="stats-bar" class="relative z-30 bg-gradient-to-r from-[#b88928] via-[#d6b154] to-[#b88928] text-kiswah-950 border-y-4 border-double border-kiswah-950 shadow-2xl">
+    <!-- Pola Tekstur Halus di Bar Emas -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 divide-x divide-kiswah-950/20">
+        <!-- Stat 1 -->
+        <div class="py-7 px-6 flex flex-col items-center text-center relative group">
+          <span class="text-[11px] text-kiswah-900/70 mb-1">۞</span>
+          <span class="font-serif text-3xl sm:text-4xl font-bold text-kiswah-950 tracking-tight">1965</span>
+          <span class="font-sans text-xs font-bold uppercase tracking-[0.18em] text-kiswah-900 mt-1">Tahun Berdiri</span>
+        </div>
+        <!-- Stat 2 -->
+        <div class="py-7 px-6 flex flex-col items-center text-center relative group">
+          <span class="text-[11px] text-kiswah-900/70 mb-1">۞</span>
+          <span class="font-serif text-3xl sm:text-4xl font-bold text-kiswah-950 tracking-tight">4 Jalur</span>
+          <span class="font-sans text-xs font-bold uppercase tracking-[0.18em] text-kiswah-900 mt-1">Jenjang Pendidikan</span>
+        </div>
+        <!-- Stat 3 -->
+        <div class="py-7 px-6 flex flex-col items-center text-center relative group">
+          <span class="text-[11px] text-kiswah-900/70 mb-1">۞</span>
+          <span class="font-serif text-3xl sm:text-4xl font-bold text-kiswah-950 tracking-tight">Muttashil</span>
+          <span class="font-sans text-xs font-bold uppercase tracking-[0.18em] text-kiswah-900 mt-1">Sanad Keilmuan Salaf</span>
+        </div>
+        <!-- Stat 4 -->
+        <div class="py-7 px-6 flex flex-col items-center text-center relative group">
+          <span class="text-[11px] text-kiswah-900/70 mb-1">۞</span>
+          <span class="font-serif text-3xl sm:text-4xl font-bold text-kiswah-950 tracking-tight">Resmi</span>
+          <span class="font-sans text-xs font-bold uppercase tracking-[0.18em] text-kiswah-900 mt-1">Ijazah Formal & Legalitas Kemenag</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5A. SEKILAS PONDOK & LOKASI (BINGKAI MANUSKRIP KITAB TURATS)
+  ====================================================================== -->
+  <section id="tentang" class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-light relative">
+    <div class="max-w-7xl mx-auto">
+      <!-- Ornamen Pembuka Seksi -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-700 mb-2">تاريخ المعهد وروح الجهاد</p>
+        <div class="inline-flex items-center gap-3 px-4 py-1 rounded-full bg-turats-200 border border-kuningan-500/50 text-kiswah-900 text-xs font-bold uppercase tracking-[0.22em] mb-4">
+          <span>✦</span> Warisan Bumi Parakan <span>✦</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold leading-tight">
+          Pertautan Sanad Keilmuan &amp; <span class="italic font-normal text-kiswah-700">Sejarah Bambu Runcing</span>
+        </h2>
+      </div>
+
+      <!-- Konten Utama dalam Bingkai Kitab Klasik -->
+      <div class="kitab-frame bg-turats-50 p-6 sm:p-12 lg:p-16 shadow-ornate">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Kolom Kiri: Foto Berbingkai Mihrab Kembar -->
+          <div class="lg:col-span-5 relative">
+            <div class="p-3 bg-kiswah-900 mihrab-arch border-2 border-kuningan-500 shadow-xl">
+              <div class="overflow-hidden mihrab-arch relative aspect-[4/5]">
+                <img
+                  src="https://images.unsplash.com/photo-1590076215667-875d4ef2d7de?auto=format&fit=crop&w=1000&q=80"
+                  alt="Tradisi Ngaji Kitab Kuning di Parakan"
+                  class="w-full h-full object-cover sepia-[0.25] contrast-105 hover:scale-105 transition duration-700"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-kiswah-950/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-5 inset-x-5 text-center text-turats-100">
+                  <p class="font-arabic text-xl text-kuningan-300">العلماء ورثة الأنبياء</p>
+                  <p class="text-xs tracking-widest uppercase text-turats-200 mt-1">Kauman, Parakan — Lereng Sumbing & Sindoro</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stempel / Medali Warisan 1945 & 1965 -->
+            <div class="hidden sm:flex absolute -bottom-6 -right-6 w-36 h-36 rounded-full bg-kiswah-950 border-4 border-double border-kuningan-400 text-center flex-col items-center justify-center p-3 shadow-2xl">
+              <span class="text-kuningan-400 text-xs">★ 1965 ★</span>
+              <span class="font-serif font-bold text-turats-100 text-sm leading-tight my-1">Bumi Bambu Runcing</span>
+              <span class="text-[10px] uppercase tracking-widest text-kuningan-300">Parakan</span>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Narasi Manuskrip -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="flex items-center gap-3 border-b border-kuningan-500/40 pb-3">
+              <span class="text-kuningan-600 text-xl">۞</span>
+              <span class="font-serif italic text-kiswah-800 text-lg">Muqaddimah &amp; Akar Sejarah Pesantren</span>
+            </div>
+
+            <p class="drop-cap font-sans text-jati-900/90 text-base sm:text-lg leading-relaxed text-justify">
+              Di kaki gunung kembar Sumbing dan Sindoro, tepatnya di kawasan bersejarah Kauman, Parakan, Temanggung, berdiri <strong>Pondok Pesantren Kyai Parak Bambu Runcing</strong>. Tanah Parakan dikenal dalam lembaran sejarah nasional sebagai pusat penyepuhan spiritual ribuan laskar pejuang kemerdekaan yang datang memohon doa restu dan asmak <em>Bambu Runcing</em> kepada para masyayikh.
+            </p>
+
+            <p class="font-sans text-jati-900/85 text-base leading-relaxed text-justify">
+              Melanjutkan api perjuangan tersebut, <strong>Almaghfurlah KH. R. Muhaiminan Gunardho</strong> merintis pesantren ini pada tahun <strong>1965</strong>. Bukan sekadar lembaga pengajaran, melainkan kawah candradimuka tempat santri ditempa kedalaman ilmu fiqih, tauhid, dan tasawuf melalui kitab-kitab <em>turats mu'tabarah</em> dengan sanad yang muttashil (bersambung) hingga Rasulullah ﷺ.
+            </p>
+
+            <!-- Kotak Kutipan Kiai -->
+            <div class="bg-turats-200/70 border-l-4 border-kiswah-800 p-5 rounded-r-lg relative">
+              <p class="font-serif italic text-kiswah-950 text-base sm:text-lg mb-2">
+                "Santri Kyai Parak tidak boleh tercerabut dari akar salafnya. Tangan kanannya memegang kitab kuning dan tasbih dzikir, sementara jiwanya mewarisi keteguhan Bambu Runcing dalam menjaga agama dan keutuhan NKRI."
+              </p>
+              <p class="font-sans text-xs font-bold uppercase tracking-widest text-kuningan-700">
+                — Risalah Khidmah Pondok Pesantren Kyai Parak Bambu Runcing
+              </p>
+            </div>
+
+            <!-- 3 Penanda Keunggulan -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3">
+              <div class="p-3.5 bg-turats-100 border border-kuningan-500/40 rounded flex items-start gap-3">
+                <i class="fa-solid fa-book-quran text-kiswah-800 text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-serif font-bold text-sm text-kiswah-950">Kitab Turats Murni</h4>
+                  <p class="text-xs text-jati-800/80">Metode sorogan, bandongan, & musyawarah.</p>
+                </div>
+              </div>
+              <div class="p-3.5 bg-turats-100 border border-kuningan-500/40 rounded flex items-start gap-3">
+                <i class="fa-solid fa-compass-drafting text-kiswah-800 text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-serif font-bold text-sm text-kiswah-950">Tarekat Mu'tabarah</h4>
+                  <p class="text-xs text-jati-800/80">Riyadhah hati & dzikir Syadziliyah-Qadiriyah.</p>
+                </div>
+              </div>
+              <div class="p-3.5 bg-turats-100 border border-kuningan-500/40 rounded flex items-start gap-3">
+                <i class="fa-solid fa-shield-halved text-kiswah-800 text-xl mt-1"></i>
+                <div>
+                  <h4 class="font-serif font-bold text-sm text-kiswah-950">Patriotisme Santri</h4>
+                  <p class="text-xs text-jati-800/80">Penjaga tradisi Ahlussunnah & cinta tanah air.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5B. NILAI PENDIDIKAN (5 PILAR) - KARTU LENGKUNG MIHRAB KERATON
+  ====================================================================== -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-dark text-turats-100 border-y-4 border-kuningan-500 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto relative z-10">
+      <!-- Header Seksi -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-300 mb-2">الأركان الخمسة للتربية المعهدية</p>
+        <span class="text-xs uppercase tracking-[0.28em] text-kuningan-400 font-bold block mb-3">
+          ✦ Panca Jiwa &amp; Fondasi Tarbiyah ✦
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-turats-50 font-medium">
+          Lima Pilar <span class="italic font-light text-kuningan-300">Pendidikan Pesantren</span>
+        </h2>
+        <p class="text-turats-200/80 text-sm sm:text-base mt-4 font-light">
+          Kurikulum kehidupan di Pondok Pesantren Kyai Parak Bambu Runcing bertumpu pada lima pilar utama yang menyatukan dimensi intelektual, spiritual, dan kepahlawanan.
+        </p>
+      </div>
+
+      <!-- Grid 5 Pilar Berbentuk Mihrab -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <!-- Pilar 1 -->
+        <div class="mihrab-card bg-kiswah-950/90 border-2 border-kuningan-500/60 p-6 pt-12 text-center flex flex-col items-center shadow-ornate-dark hover:border-kuningan-300 hover:-translate-y-1.5 transition duration-300">
+          <div class="w-14 h-14 rounded-full bg-kuningan-500/20 border border-kuningan-400 flex items-center justify-center text-kuningan-300 text-xl mb-4">
+            <i class="fa-solid fa-scroll"></i>
+          </div>
+          <span class="font-arabic text-lg text-kuningan-300 mb-1">السلفيّة الخالصة</span>
+          <h3 class="font-serif text-xl font-semibold text-turats-50 mb-3">1. Salaf Murni</h3>
+          <p class="text-xs text-turats-200/80 leading-relaxed">
+            Berpegang teguh pada manhaj ulama salafus shalih melalui kajian kitab kuning klasik tanpa tergerus pendangkalan keilmuan.
+          </p>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="mihrab-card bg-kiswah-950/90 border-2 border-kuningan-500/60 p-6 pt-12 text-center flex flex-col items-center shadow-ornate-dark hover:border-kuningan-300 hover:-translate-y-1.5 transition duration-300">
+          <div class="w-14 h-14 rounded-full bg-kuningan-500/20 border border-kuningan-400 flex items-center justify-center text-kuningan-300 text-xl mb-4">
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <span class="font-arabic text-lg text-kuningan-300 mb-1">الإسناد المتّصل</span>
+          <h3 class="font-serif text-xl font-semibold text-turats-50 mb-3">2. Ilmu Bersanad</h3>
+          <p class="text-xs text-turats-200/80 leading-relaxed">
+            Setiap disiplin ilmu—baik Al-Qur'an, Fiqih, Nahwu-Sharaf, hingga Aqidah—diajarkan oleh masyayikh dengan mata rantai sanad yang jelas.
+          </p>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="mihrab-card bg-kiswah-950/90 border-2 border-kuningan-500/60 p-6 pt-12 text-center flex flex-col items-center shadow-ornate-dark hover:border-kuningan-300 hover:-translate-y-1.5 transition duration-300">
+          <div class="w-14 h-14 rounded-full bg-kuningan-500/20 border border-kuningan-400 flex items-center justify-center text-kuningan-300 text-xl mb-4">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <span class="font-arabic text-lg text-kuningan-300 mb-1">الأخلاق الكريمة</span>
+          <h3 class="font-serif text-xl font-semibold text-turats-50 mb-3">3. Akhlakul Karimah</h3>
+          <p class="text-xs text-turats-200/80 leading-relaxed">
+            Adab di atas ilmu. Ketawadhuan santri kepada kiai, orang tua, dan sesama menjadi tolok ukur keberkahan ilmu di pesantren.
+          </p>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="mihrab-card bg-kiswah-950/90 border-2 border-kuningan-500/60 p-6 pt-12 text-center flex flex-col items-center shadow-ornate-dark hover:border-kuningan-300 hover:-translate-y-1.5 transition duration-300">
+          <div class="w-14 h-14 rounded-full bg-kuningan-500/20 border border-kuningan-400 flex items-center justify-center text-kuningan-300 text-xl mb-4">
+            <i class="fa-solid fa-star-and-crescent"></i>
+          </div>
+          <span class="font-arabic text-lg text-kuningan-300 mb-1">التزكية والطريقة</span>
+          <h3 class="font-serif text-xl font-semibold text-turats-50 mb-3">4. Spiritualitas Tarekat</h3>
+          <p class="text-xs text-turats-200/80 leading-relaxed">
+            Penjernihan batin (tazkiyatun nafs) melalui istighotsah, mujahadah, dan amaliah dzikir tarekat mu'tabarah yang menenangkan jiwa.
+          </p>
+        </div>
+
+        <!-- Pilar 5 -->
+        <div class="mihrab-card bg-kiswah-950/90 border-2 border-kuningan-500/60 p-6 pt-12 text-center flex flex-col items-center shadow-ornate-dark hover:border-kuningan-300 hover:-translate-y-1.5 transition duration-300">
+          <div class="w-14 h-14 rounded-full bg-kuningan-500/20 border border-kuningan-400 flex items-center justify-center text-kuningan-300 text-xl mb-4">
+            <i class="fa-solid fa-people-carry-box"></i>
+          </div>
+          <span class="font-arabic text-lg text-kuningan-300 mb-1">روح الخدمة والجهاد</span>
+          <h3 class="font-serif text-xl font-semibold text-turats-50 mb-3">5. Jiwa Khidmah</h3>
+          <p class="text-xs text-turats-200/80 leading-relaxed">
+            Kesiapan terjun mengabdi di tengah masyarakat sebagai penggerak dakwah yang tangguh, mandiri, dan mengayomi umat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5C. 4 PROGRAM PENDIDIKAN (KOLEKSI KARTU MANUSKRIP + MODAL SILABUS)
+  ====================================================================== -->
+  <section id="pendidikan" class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-light">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header Seksi -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-700 mb-1">البرامج التعليمية الأربعة</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-turats-200 border border-kuningan-500/50 text-kiswah-900 text-xs font-bold uppercase tracking-[0.22em] mb-3">
+          <span>✦</span> Kurikulum Terpadu Bersanad <span>✦</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold">
+          Empat Jalur <span class="italic font-normal text-kiswah-700">Pendidikan Utama</span>
+        </h2>
+        <p class="text-jati-800/80 text-sm sm:text-base mt-3">
+          Memadukan ketajaman penguasaan kitab salaf, kemuliaan hafalan Al-Qur'an, legalitas ijazah negara, serta ketangguhan fisik-mental warisan laskar pejuang.
+        </p>
+      </div>
+
+      <!-- Grid 4 Kartu Pendidikan -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Program 1: Madrasah Manba'ul Falah -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between group">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between gap-4 border-b border-kuningan-500/40 pb-4 mb-5">
+              <span class="px-3 py-1 bg-kiswah-900 text-kuningan-300 text-[11px] font-bold uppercase tracking-widest rounded">
+                Jalur 01 • Diniyah Salafiyah
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">مدرسة منبع الفلاح</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 mb-3 group-hover:text-kiswah-700 transition">
+              Madrasah Manba'ul Falah
+            </h3>
+            <p class="text-jati-800/85 text-sm sm:text-base leading-relaxed mb-6">
+              Kajian kitab kuning klasik berjenjang (Ibtida'iyah, Tsanawiyah, hingga 'Aliyah) sebagai pondasi utama keilmuan salaf murni. Menekankan penguasaan alat (Nahwu &amp; Sharaf) hingga pendalaman Fiqih Syafi'iyah, Ushul Fiqih, dan Tasawuf.
+            </p>
+            <div class="bg-turats-100 border border-kuningan-500/40 p-4 rounded mb-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-kiswah-900 mb-2">
+                <i class="fa-solid fa-book-open text-kuningan-600 mr-1.5"></i> Kitab Rujukan Utama:
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium text-kiswah-950">
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Jurumiyah &amp; Imrithi</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Alfiyah Ibnu Malik</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Fathul Qarib</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Fathul Mu'in</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Minhajul 'Abidin</span>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="openProgramModal('manbaul')" class="w-full py-3 rounded bg-kiswah-900 hover:bg-kiswah-800 text-kuningan-300 font-sans text-xs font-bold uppercase tracking-[0.2em] border border-kuningan-500 transition flex items-center justify-center gap-2">
+            <span>Lihat Kurikulum &amp; Marhalah Kitab</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </button>
+        </div>
+
+        <!-- Program 2: Tahfidzul Qur'an -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between group">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between gap-4 border-b border-kuningan-500/40 pb-4 mb-5">
+              <span class="px-3 py-1 bg-kiswah-900 text-kuningan-300 text-[11px] font-bold uppercase tracking-widest rounded">
+                Jalur 02 • Al-Qur'an Bersanad
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">تحفيظ القرآن الكريم</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 mb-3 group-hover:text-kiswah-700 transition">
+              Tahfidzul Qur'an
+            </h3>
+            <p class="text-jati-800/85 text-sm sm:text-base leading-relaxed mb-6">
+              Program pemuliaan dan penjagaan kalam Ilahi melalui tahapan <em>Bin-Nadzar</em> (pembenahan makhraj dan tajwid) menuju <em>Bil-Ghaib</em> 30 Juz dengan sanad qira'ah yang muttashil serta disiplin murajaah harian dan sima'an berkala.
+            </p>
+            <div class="bg-turats-100 border border-kuningan-500/40 p-4 rounded mb-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-kiswah-900 mb-2">
+                <i class="fa-solid fa-award text-kuningan-600 mr-1.5"></i> Fokus Pembinaan Tahfidz:
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium text-kiswah-950">
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Tashih Makharijul Huruf</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Tuhfatul Athfal &amp; Jazariyah</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Setoran Ziyadah Subuh</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Sima'an Kubro</span>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="openProgramModal('tahfidz')" class="w-full py-3 rounded bg-kiswah-900 hover:bg-kiswah-800 text-kuningan-300 font-sans text-xs font-bold uppercase tracking-[0.2em] border border-kuningan-500 transition flex items-center justify-center gap-2">
+            <span>Lihat Metode Setoran &amp; Sanad</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </button>
+        </div>
+
+        <!-- Program 3: Pendidikan Kesetaraan (PKPPS) -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between group">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between gap-4 border-b border-kuningan-500/40 pb-4 mb-5">
+              <span class="px-3 py-1 bg-kiswah-900 text-kuningan-300 text-[11px] font-bold uppercase tracking-widest rounded">
+                Jalur 03 • Ijazah Formal Negara
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">المعادلة الرسمية</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 mb-3 group-hover:text-kiswah-700 transition">
+              Pendidikan Kesetaraan (PKPPS)
+            </h3>
+            <p class="text-jati-800/85 text-sm sm:text-base leading-relaxed mb-6">
+              Penyelenggaraan Pendidikan Kesetaraan pada Pondok Pesantren Salafiyah resmi di bawah Kementerian Agama RI. Santri memperoleh <strong>Ijazah Formal Negara</strong> setara SMP/MTs (Wustha) dan SMA/MA ('Ulya) untuk melanjutkan ke perguruan tinggi dalam maupun luar negeri.
+            </p>
+            <div class="bg-turats-100 border border-kuningan-500/40 p-4 rounded mb-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-kiswah-900 mb-2">
+                <i class="fa-solid fa-graduation-cap text-kuningan-600 mr-1.5"></i> Jenjang &amp; Legalitas:
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium text-kiswah-950">
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Marhalah Wustha (Setara SMP)</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Marhalah 'Ulya (Setara SMA)</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Terdaftar EMIS Kemenag</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Akses PTN / Timur Tengah</span>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="openProgramModal('pkpps')" class="w-full py-3 rounded bg-kiswah-900 hover:bg-kiswah-800 text-kuningan-300 font-sans text-xs font-bold uppercase tracking-[0.2em] border border-kuningan-500 transition flex items-center justify-center gap-2">
+            <span>Lihat Struktur PKPPS Wustha &amp; 'Ulya</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </button>
+        </div>
+
+        <!-- Program 4: Pendidikan LGBR (Laskar Garuda Bambu Runcing) -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between group">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between gap-4 border-b border-kuningan-500/40 pb-4 mb-5">
+              <span class="px-3 py-1 bg-kuningan-600 text-white text-[11px] font-bold uppercase tracking-widest rounded">
+                Jalur 04 • Warisan Khas Pesantren
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">عسكر غارودا بامبو رونتشينج</span>
+            </div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 mb-3 group-hover:text-kiswah-700 transition">
+              Pendidikan LGBR <span class="text-lg font-normal text-kiswah-700">(Laskar Garuda Bambu Runcing)</span>
+            </h3>
+            <p class="text-jati-800/85 text-sm sm:text-base leading-relaxed mb-6">
+              Ekstrakurikuler wajib khas Pondok Pesantren Kyai Parak Bambu Runcing yang memadukan seni bela diri pencak silat tradisional, olah pernafasan tenaga dalam, riyadhah wirid penjagaan diri, serta pembentukan ketahanan fisik-mental kesatria santri.
+            </p>
+            <div class="bg-turats-100 border border-kuningan-500/40 p-4 rounded mb-6">
+              <p class="text-xs font-bold uppercase tracking-wider text-kiswah-900 mb-2">
+                <i class="fa-solid fa-fire-flame-curved text-kuningan-600 mr-1.5"></i> Materi Tempaan LGBR:
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-medium text-kiswah-950">
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Jurus Pencak Silat Tradisional</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Olah Nafas &amp; Tenaga Dalam</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Hizib &amp; Doa Penjagaan</span>
+                <span class="px-2.5 py-1 bg-turats-200 rounded">Adab Kesatria Santri</span>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="openProgramModal('lgbr')" class="w-full py-3 rounded bg-kiswah-900 hover:bg-kiswah-800 text-kuningan-300 font-sans text-xs font-bold uppercase tracking-[0.2em] border border-kuningan-500 transition flex items-center justify-center gap-2">
+            <span>Lihat Tingkatan &amp; Filosofi LGBR</span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5D. KEHIDUPAN SANTRI (BENTO-GRID BERBINGKAI + WIRDUL YAUMI 24 JAM)
+  ====================================================================== -->
+  <section id="kehidupan-santri" class="py-24 px-4 sm:px-6 lg:px-8 bg-turats-200/70 border-t-2 border-kuningan-500/50">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-700 mb-1">حياة المعهد والورد اليومي</p>
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-turats-50 border border-kuningan-500/50 text-kiswah-900 text-xs font-bold uppercase tracking-[0.22em] mb-3">
+          <span>✦</span> Ritme Ibadah, Ta'lim &amp; Riyadloh <span>✦</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold">
+          Kehidupan Santri <span class="italic font-normal text-kiswah-700">Dari Subuh ke Subuh</span>
+        </h2>
+      </div>
+
+      <!-- Bento Grid Foto Jurnalistik Berbingkai Emas -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-16">
+        <!-- Foto Utama Besar (Kiri) -->
+        <div class="md:col-span-7 relative group overflow-hidden rounded-lg border-2 border-kuningan-500 shadow-ornate min-h-[360px]">
+          <img
+            src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1200&q=80"
+            alt="Halaqah Kitab Kuning"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-kiswah-950 via-kiswah-950/30 to-transparent"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-8 text-turats-50">
+            <span class="px-2.5 py-1 bg-kuningan-500 text-kiswah-950 text-[10px] font-bold uppercase tracking-widest rounded">
+              Ta'lim Masyayikh
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold mt-2">Ngaji Bandongan &amp; Sorogan</h3>
+            <p class="text-xs sm:text-sm text-turats-200 mt-1 max-w-xl">
+              Tradisi memaknai kitab kuning huruf demi huruf (pegon Jawa) di hadapan kiai dan asatidz untuk menjaga kemurnian pemahaman.
+            </p>
+          </div>
+        </div>
+
+        <!-- Kanan Atas (2 Foto atau 1 Lebar) -->
+        <div class="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-5">
+          <div class="relative group overflow-hidden rounded-lg border-2 border-kuningan-500 shadow-ornate min-h-[180px]">
+            <img
+              src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80"
+              alt="Mujahadah & Jamaah Lima Waktu"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kiswah-950 via-kiswah-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 text-turats-50">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-kuningan-300">Riyadloh Batin</span>
+              <h4 class="font-serif text-xl font-semibold">Jamaah &amp; Dzikir Tarekat</h4>
+              <p class="text-xs text-turats-200">Sholat berjamaah lima waktu dilanjutkan wirid dan hizib.</p>
+            </div>
+          </div>
+
+          <div class="relative group overflow-hidden rounded-lg border-2 border-kuningan-500 shadow-ornate min-h-[180px]">
+            <img
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80"
+              alt="Musyawarah & Bahtsul Masail"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-kiswah-950 via-kiswah-950/30 to-transparent"></div>
+            <div class="absolute bottom-0 inset-x-0 p-5 text-turats-50">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-kuningan-300">Syawir Malam</span>
+              <h4 class="font-serif text-xl font-semibold">Musyawarah &amp; Bahtsul Masa'il</h4>
+              <p class="text-xs text-turats-200">Mengasah nalar kritis fiqih santri dalam memecahkan persoalan umat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabel / Tab Jadwal Harian Santri (Wirdul Yaumi) -->
+      <div class="kitab-frame bg-turats-50 p-6 sm:p-10 shadow-ornate">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-kuningan-500/40 pb-6 mb-6">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-kuningan-700">۞ Tertib Waktu Pesantren</span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950">Jadwal Keseharian Santri (24 Jam)</h3>
+          </div>
+          <!-- Tombol Filter Waktu -->
+          <div class="flex flex-wrap gap-2" id="schedule-tabs">
+            <button onclick="switchSchedule('subuh')" id="tab-subuh" class="sched-btn px-4 py-2 rounded bg-kiswah-900 text-kuningan-300 text-xs font-bold uppercase tracking-wider border border-kuningan-500 transition">
+              Dini Hari &amp; Pagi
+            </button>
+            <button onclick="switchSchedule('siang')" id="tab-siang" class="sched-btn px-4 py-2 rounded bg-turats-200 text-kiswah-950 text-xs font-bold uppercase tracking-wider border border-kuningan-500/40 hover:bg-turats-300 transition">
+              Siang &amp; Sore
+            </button>
+            <button onclick="switchSchedule('malam')" id="tab-malam" class="sched-btn px-4 py-2 rounded bg-turats-200 text-kiswah-950 text-xs font-bold uppercase tracking-wider border border-kuningan-500/40 hover:bg-turats-300 transition">
+              Maghrib &amp; Malam
+            </button>
+          </div>
+        </div>
+
+        <!-- Konten Jadwal Dinamis -->
+        <div id="schedule-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Default diisi lewat JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5E. SEJARAH & PENGASUH (PENGHORMATAN MUASSIS KH. R. MUHAIMINAN GUNARDHO)
+  ====================================================================== -->
+  <section class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-dark text-turats-50 border-y-4 border-kuningan-500 relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="kitab-frame-dark bg-kiswah-950/95 p-8 sm:p-12 lg:p-16 shadow-ornate-dark">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <!-- Bingkai Foto Arsip Historis Muassis -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            <div class="relative p-3 bg-gradient-to-b from-kuningan-400 via-kuningan-600 to-kuningan-400 mihrab-arch shadow-gold-glow max-w-xs w-full">
+              <div class="bg-kiswah-950 p-2 mihrab-arch">
+                <div class="overflow-hidden mihrab-arch aspect-[3/4] relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                    alt="Potret Historis Simbah KH. R. Muhaiminan Gunardho"
+                    class="w-full h-full object-cover grayscale contrast-125 sepia-[0.35]"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-kiswah-950 via-transparent to-transparent"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <p class="font-arabic text-xl text-kuningan-300">المغفور له الشيخ الحاج رادين مهيمنان غوناردو</p>
+              <h3 class="font-serif text-xl font-bold text-turats-50 mt-1">KH. R. Muhaiminan Gunardho</h3>
+              <p class="text-xs uppercase tracking-[0.2em] text-kuningan-400 mt-1">Muassis Pondok Pesantren Kyai Parak Bambu Runcing</p>
+            </div>
+          </div>
+
+          <!-- Riwayat & Dawuh Mutiara Hikmah -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-kuningan-500/20 border border-kuningan-400/50 text-kuningan-300 text-xs font-bold uppercase tracking-widest">
+              <span>۞</span> Manaqib Muassis &amp; Sanad Keilmuan
+            </div>
+
+            <h2 class="font-serif text-3xl sm:text-4xl text-turats-50 font-medium leading-snug">
+              Ulama Kharismatik Penjaga <span class="italic text-kuningan-300">Tradisi Salaf &amp; Spiritualitas Nusantara</span>
+            </h2>
+
+            <p class="text-turats-200/85 text-sm sm:text-base leading-relaxed text-justify">
+              <strong>Simbah KH. R. Muhaiminan Gunardho</strong> dikenal luas sebagai ulama kharismatik sekaligus mursyid tarekat di Parakan, Temanggung. Beliau mewarisi mata rantai keilmuan dari ayahanda beliau, <strong>KH. R. Sumomihardjo</strong>, serta para ulama besar tanah Jawa yang terlibat langsung dalam penyepuhan spiritual perjuangan kemerdekaan Republik Indonesia di Parakan.
+            </p>
+
+            <!-- Kotak Dawuh Mutiara Hikmah -->
+            <div class="p-6 bg-kiswah-900/90 border-2 border-kuningan-500/50 rounded-lg relative">
+              <i class="fa-solid fa-quote-right text-4xl text-kuningan-500/25 absolute top-4 right-5"></i>
+              <p class="font-arabic text-xl text-kuningan-300 mb-2">
+                « الاستقامة خير من ألف كرامة »
+              </p>
+              <p class="font-serif italic text-lg sm:text-xl text-turats-50 leading-relaxed mb-3">
+                "Wong ngaji kuwi sing paling abot dudu apalane, nanging istiqomahe lan adabe marang guru. Ilmu sing berkah kuwi ilmu sing gawe atimu tambah andhap asor lan manfaat kanggo umat."
+              </p>
+              <p class="text-xs uppercase tracking-[0.2em] text-kuningan-400 font-bold">
+                — Dawuh Hikmah KH. R. Muhaiminan Gunardho
+              </p>
+            </div>
+
+            <div class="pt-2 flex flex-wrap items-center gap-6 text-xs text-turats-200">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-sitemap text-kuningan-400"></i>
+                <span>Estafet Kepengasuhan Dzurriyah Masyayikh</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-users text-kuningan-400"></i>
+                <span>Ribuan Alumni Tersebar di Nusantara</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5F. AGENDA TERDEKAT (3 AGENDA - GAYA UNDANGAN MAJELIS KERATON)
+  ====================================================================== -->
+  <section id="agenda" class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+        <div>
+          <p class="font-arabic text-2xl text-kuningan-700 mb-1">المجالس والمناسبات القريبة</p>
+          <span class="text-xs font-bold uppercase tracking-[0.24em] text-kiswah-800 block mb-2">
+            ✦ Majelis Ilmu &amp; Dzikir Terbuka ✦
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold">
+            Agenda <span class="italic font-normal text-kiswah-700">Pesantren Terdekat</span>
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-jati-800/80 max-w-md">
+          Majelis rutin dan peringatan besar yang terbuka bagi wali santri, alumni, jamaah tarekat, serta masyarakat umum.
+        </p>
+      </div>
+
+      <!-- 3 Kartu Kalender Elegan -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Agenda 1 -->
+        <div class="kitab-frame bg-turats-50 p-7 shadow-ornate flex flex-col justify-between">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded bg-kiswah-900 border-2 border-kuningan-500 text-center flex flex-col justify-center shrink-0">
+                <span class="text-[10px] uppercase tracking-widest text-kuningan-300 font-bold">Selapanan</span>
+                <span class="font-serif text-xl font-bold text-white leading-none mt-0.5">Rabu</span>
+                <span class="text-[10px] text-kuningan-300">Kliwon</span>
+              </div>
+              <div>
+                <span class="px-2.5 py-0.5 bg-turats-200 text-kiswah-900 text-[10px] font-bold uppercase tracking-widest rounded">
+                  Rutin 35 Hari Sekali
+                </span>
+                <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-1">
+                  Pengajian Selapanan Rabu Kliwon
+                </h3>
+              </div>
+            </div>
+            <p class="text-sm text-jati-800/85 leading-relaxed mb-5">
+              Majelis pengajian kitab hikmah, istighotsah akbar, dan silaturahmi rutin seluruh santri, wali santri, alumni, serta jamaah masyarakat Parakan.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-kuningan-500/30 text-xs text-kiswah-900 space-y-1.5 font-medium">
+            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-kuningan-600 w-4"></i><span>08.30 WIB – Selesai (Ba'da Dhuha)</span></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-kuningan-600 w-4"></i><span>Serambi Masjid &amp; Aula Utama Pondok</span></div>
+          </div>
+        </div>
+
+        <!-- Agenda 2 -->
+        <div class="kitab-frame bg-turats-50 p-7 shadow-ornate flex flex-col justify-between">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded bg-kiswah-900 border-2 border-kuningan-500 text-center flex flex-col justify-center shrink-0">
+                <span class="text-[10px] uppercase tracking-widest text-kuningan-300 font-bold">Malam</span>
+                <span class="font-serif text-xl font-bold text-white leading-none mt-0.5">Jumat</span>
+                <span class="text-[10px] text-kuningan-300">Pekan I</span>
+              </div>
+              <div>
+                <span class="px-2.5 py-0.5 bg-turats-200 text-kiswah-900 text-[10px] font-bold uppercase tracking-widest rounded">
+                  Riyadloh Tarekat
+                </span>
+                <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-1">
+                  Mujahadah &amp; Dzikir Tarekat
+                </h3>
+              </div>
+            </div>
+            <p class="text-sm text-jati-800/85 leading-relaxed mb-5">
+              Khataman Al-Qur'an, pembacaan Manaqib Syaikh Abdul Qadir Al-Jailani, wirid tarekat mu'tabarah, dan doa bersama untuk keselamatan bangsa.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-kuningan-500/30 text-xs text-kiswah-900 space-y-1.5 font-medium">
+            <div class="flex items-center gap-2"><i class="fa-regular fa-clock text-kuningan-600 w-4"></i><span>19.30 WIB (Ba'da Isya Berjamaah)</span></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-kuningan-600 w-4"></i><span>Masjid Jami' Pondok Pesantren</span></div>
+          </div>
+        </div>
+
+        <!-- Agenda 3 -->
+        <div class="kitab-frame bg-turats-50 p-7 shadow-ornate flex flex-col justify-between">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded bg-kuningan-600 border-2 border-kiswah-950 text-center flex flex-col justify-center shrink-0">
+                <span class="text-[10px] uppercase tracking-widest text-turats-100 font-bold">Haul</span>
+                <span class="font-serif text-xl font-bold text-white leading-none mt-0.5">Akbar</span>
+                <span class="text-[10px] text-turats-100">Tahunan</span>
+              </div>
+              <div>
+                <span class="px-2.5 py-0.5 bg-kuningan-500/25 text-kiswah-950 text-[10px] font-bold uppercase tracking-widest rounded">
+                  Agenda Besar Tahunan
+                </span>
+                <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-1">
+                  Peringatan Haul Masyayikh
+                </h3>
+              </div>
+            </div>
+            <p class="text-sm text-jati-800/85 leading-relaxed mb-5">
+              Puncak peringatan Haul Almaghfurlah KH. R. Muhaiminan Gunardho beserta sesepuh Parakan, dirangkai dengan Khotmil Qur'an, Temu Alumni, dan Mauidzoh Hasanah.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-kuningan-500/30 text-xs text-kiswah-900 space-y-1.5 font-medium">
+            <div class="flex items-center gap-2"><i class="fa-regular fa-calendar text-kuningan-600 w-4"></i><span>Sesuai Maklumat Kalender Hijriyah Pondok</span></div>
+            <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-kuningan-600 w-4"></i><span>Kompleks Utama Kyai Parak, Parakan</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5G. KABAR & KARYA SANTRI (3 KONTEN TERBARU + MODAL PEMBACA)
+  ====================================================================== -->
+  <section id="kabar" class="py-24 px-4 sm:px-6 lg:px-8 bg-turats-100 border-t-2 border-kuningan-500/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-700 mb-1">أخبار المعهد ومقالات الطلاب</p>
+        <span class="text-xs font-bold uppercase tracking-[0.24em] text-kiswah-800 block mb-2">
+          ✦ Jurnalistik &amp; Literasi Turats ✦
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold">
+          Kabar &amp; <span class="italic font-normal text-kiswah-700">Karya Tulis Santri</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Artikel 1 -->
+        <article class="kitab-frame bg-turats-50 overflow-hidden shadow-ornate flex flex-col justify-between group">
+          <div>
+            <div class="relative h-56 overflow-hidden border-b-2 border-kuningan-500">
+              <img
+                src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=800&q=80"
+                alt="Bahtsul Masail Santri"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 bg-kiswah-950/90 text-kuningan-300 text-[10px] font-bold uppercase tracking-widest border border-kuningan-500">
+                Bahtsul Masa'il
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-kuningan-700 font-semibold">12 Syawal 1447 H • Redaksi Lajnah Ilmiyah</span>
+              <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-2 mb-3 group-hover:text-kiswah-700 transition">
+                Menjawab Problematika Muamalah Digital melalui Lensa Kitab Fathul Mu'in
+              </h3>
+              <p class="text-xs sm:text-sm text-jati-800/80 leading-relaxed">
+                Rumusan musyawarah kubro santri Madrasah Manba'ul Falah tingkat 'Aliyah dalam membedah hukum akad transaksi modern.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button onclick="openArticleModal(0)" class="text-xs font-bold uppercase tracking-widest text-kiswah-900 hover:text-kuningan-700 inline-flex items-center gap-2">
+              <span>Baca Risalah Lengkap</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Artikel 2 -->
+        <article class="kitab-frame bg-turats-50 overflow-hidden shadow-ornate flex flex-col justify-between group">
+          <div>
+            <div class="relative h-56 overflow-hidden border-b-2 border-kuningan-500">
+              <img
+                src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80"
+                alt="Khataman Tahfidz"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 bg-kiswah-950/90 text-kuningan-300 text-[10px] font-bold uppercase tracking-widest border border-kuningan-500">
+                Kabar Pondok
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-kuningan-700 font-semibold">28 Ramadhan 1447 H • Warta Tahfidz</span>
+              <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-2 mb-3 group-hover:text-kiswah-700 transition">
+                Khataman Kubro &amp; Sima'an Al-Qur'an 30 Juz Bil-Ghaib Santri Putra-Putri
+              </h3>
+              <p class="text-xs sm:text-sm text-jati-800/80 leading-relaxed">
+                Suasana khusyuk menyelimuti ndalem dan serambi masjid saat para hafidz-hafidzah menyetorkan hafalan pamungkas di hadapan masyayikh.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button onclick="openArticleModal(1)" class="text-xs font-bold uppercase tracking-widest text-kiswah-900 hover:text-kuningan-700 inline-flex items-center gap-2">
+              <span>Baca Liputan Lengkap</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Artikel 3 -->
+        <article class="kitab-frame bg-turats-50 overflow-hidden shadow-ornate flex flex-col justify-between group">
+          <div>
+            <div class="relative h-56 overflow-hidden border-b-2 border-kuningan-500">
+              <img
+                src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=800&q=80"
+                alt="Sejarah Bambu Runcing Parakan"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 bg-kuningan-600 text-white text-[10px] font-bold uppercase tracking-widest border border-kiswah-950">
+                Khazanah Sejarah
+              </span>
+            </div>
+            <div class="p-6">
+              <span class="text-xs text-kuningan-700 font-semibold">04 Syawal 1447 H • Arsip Turats Parakan</span>
+              <h3 class="font-serif text-xl font-bold text-kiswah-950 mt-2 mb-3 group-hover:text-kiswah-700 transition">
+                Jejak Tirakat Ulama Parakan dan Rahasia Ruhani di Balik Bambu Runcing 1945
+              </h3>
+              <p class="text-xs sm:text-sm text-jati-800/80 leading-relaxed">
+                Menelusuri bagaimana riyadhah para kiai sepuh di Kauman Parakan membangkitkan keberanian laskar santri mempertahankan kemerdekaan.
+              </p>
+            </div>
+          </div>
+          <div class="px-6 pb-6">
+            <button onclick="openArticleModal(2)" class="text-xs font-bold uppercase tracking-widest text-kiswah-900 hover:text-kuningan-700 inline-flex items-center gap-2">
+              <span>Baca Esai Sejarah</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5H. PENERIMAAN SANTRI BARU (PSB) - MAKLUMAT ADAB SOWAN & BIAYA
+  ====================================================================== -->
+  <section id="psb" class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-dark text-turats-50 border-t-4 border-kuningan-500">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header PSB -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <p class="font-arabic text-2xl text-kuningan-300 mb-1">قبول الطلاب الجدد وأدب التلقي</p>
+        <span class="text-xs font-bold uppercase tracking-[0.26em] text-kuningan-400 block mb-2">
+          ✦ Tahun Ajaran 1447 / 2026 ✦
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-turats-50 font-medium">
+          Penerimaan <span class="italic font-light text-kuningan-300">Santri Baru (PSB)</span>
+        </h2>
+      </div>
+
+      <!-- HIGHLIGHT KHUSUS ADAB SOWAN (PIAGam MAKLUMAT EMAS) -->
+      <div class="kitab-frame bg-gradient-to-r from-[#edd9a3] via-[#f9f1dc] to-[#edd9a3] text-kiswah-950 p-7 sm:p-10 mb-14 shadow-gold-glow">
+        <div class="corner-ornament corner-tl"></div>
+        <div class="corner-ornament corner-tr"></div>
+        <div class="corner-ornament corner-bl"></div>
+        <div class="corner-ornament corner-br"></div>
+
+        <div class="flex flex-col lg:flex-row items-center gap-6 text-center lg:text-left">
+          <div class="w-20 h-20 rounded-full bg-kiswah-950 border-4 border-double border-kuningan-400 flex items-center justify-center text-kuningan-300 text-3xl shrink-0">
+            <i class="fa-solid fa-hands-praying"></i>
+          </div>
+          <div class="flex-1">
+            <span class="px-3 py-1 bg-kiswah-950 text-kuningan-300 text-[10px] font-bold uppercase tracking-[0.25em] rounded">
+              Maklumat Adab Pesantren Salaf
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 mt-2">
+              "Calon Santri &amp; Wali Wajib Sowan Menghadap Pengasuh Sebelum Berkas Diterima"
+            </h3>
+            <p class="text-sm text-jati-900/90 mt-2 leading-relaxed">
+              Sebagaimana tradisi luhur pesantren salaf untuk meraih keberkahan ilmu (<em>tabarrukan</em>), penyerahan amanah pendidikan putra/putri dilakukan secara langsung oleh orang tua/wali dengan <strong>sowan menghadap Pengasuh di Ndalem</strong> sebelum proses administrasi berkas disahkan.
+            </p>
+          </div>
+          <a href="#kontak" class="px-6 py-3.5 rounded-full bg-kiswah-950 hover:bg-kiswah-800 text-kuningan-300 text-xs font-bold uppercase tracking-widest border-2 border-kuningan-500 shrink-0 transition shadow-lg">
+            Jadwalkan Sowan
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 STEPPER ALUR SOWAN -->
+      <div class="mb-16">
+        <h3 class="font-serif text-2xl text-center text-kuningan-300 mb-8">
+          ۞ Tata Urutan (Alur) Sowan &amp; Pendaftaran Santri Baru ۞
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Step 1 -->
+          <div class="kitab-frame-dark bg-kiswah-900/80 p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-kuningan-500 text-kiswah-950 font-serif font-bold text-lg flex items-center justify-center">01</span>
+              <span class="font-arabic text-lg text-kuningan-300">الاتصال</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold text-turats-50 mb-2">Konfirmasi Jadwal</h4>
+            <p class="text-xs text-turats-200/80 leading-relaxed">
+              Wali calon santri menghubungi Sekretariat Putra atau Putri melalui WhatsApp untuk menanyakan waktu luang Pengasuh dan mengonfirmasi rencana kedatangan.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="kitab-frame-dark bg-kiswah-900/80 p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-kuningan-500 text-kiswah-950 font-serif font-bold text-lg flex items-center justify-center">02</span>
+              <span class="font-arabic text-lg text-kuningan-300">المواجهة</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold text-turats-50 mb-2">Sowan ke Ndalem</h4>
+            <p class="text-xs text-turats-200/80 leading-relaxed">
+              Calon santri didampingi orang tua/wali hadir dengan busana muslim yang sopan dan beradab untuk sowan, memohon doa restu, serta menyerahkan putra/putrinya kepada Kiai.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="kitab-frame-dark bg-kiswah-900/80 p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-kuningan-500 text-kiswah-950 font-serif font-bold text-lg flex items-center justify-center">03</span>
+              <span class="font-arabic text-lg text-kuningan-300">التصنيف</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold text-turats-50 mb-2">Verifikasi &amp; Tes Penempatan</h4>
+            <p class="text-xs text-turats-200/80 leading-relaxed">
+              Setelah mendapat restu Pengasuh, santri mengikuti pemetaan bacaan Al-Qur'an dan kitab dasar guna menentukan kelas (marhalah) di Madrasah Manba'ul Falah &amp; PKPPS.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="kitab-frame-dark bg-kiswah-900/80 p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-10 h-10 rounded-full bg-kuningan-500 text-kiswah-950 font-serif font-bold text-lg flex items-center justify-center">04</span>
+              <span class="font-arabic text-lg text-kuningan-300">التسجيل</span>
+            </div>
+            <h4 class="font-serif text-xl font-semibold text-turats-50 mb-2">Administrasi &amp; Mukim</h4>
+            <p class="text-xs text-turats-200/80 leading-relaxed">
+              Penyerahan berkas persyaratan (KK, Akta, Ijazah terakhir), penyelesaian infaq administrasi awal, serta penempatan kamar asrama (kompleks putra/putri).
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOTAK TRANSPARANSI BIAYA & BERKAS PERSYARATAN -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Tabel Transparansi Biaya -->
+        <div class="lg:col-span-7 kitab-frame bg-turats-50 text-kiswah-950 p-7 sm:p-9">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b-2 border-kuningan-500 pb-4 mb-6">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-kuningan-700">Transparansi Amanah</span>
+              <h3 class="font-serif text-2xl font-bold text-kiswah-950">Rincian Estimasi Biaya Pendidikan</h3>
+            </div>
+            <span class="px-3 py-1 bg-kiswah-900 text-kuningan-300 text-xs font-bold rounded">Terjangkau &amp; Bersahaja</span>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            <div class="p-4 bg-turats-100 border border-kuningan-500/40 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h4 class="font-serif font-bold text-base text-kiswah-950">1. Infaq Pendaftaran &amp; Pangkal Masuk Awal</h4>
+                <p class="text-xs text-jati-800/80">Meliputi pendaftaran, seragam khas pesantren, kitab pegangan awal, kartu santri, &amp; fasilitas almari/asrama.</p>
+              </div>
+              <div class="text-left sm:text-right shrink-0">
+                <span class="font-serif font-bold text-xl text-kiswah-900">Rp 1.450.000</span>
+                <span class="block text-[10px] uppercase tracking-wider text-kuningan-700 font-bold">Sekali di Awal Masuk</span>
+              </div>
+            </div>
+
+            <div class="p-4 bg-turats-100 border border-kuningan-500/40 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h4 class="font-serif font-bold text-base text-kiswah-950">2. Syahriyah (SPP Bulanan &amp; Makan)</h4>
+                <p class="text-xs text-jati-800/80">Mencakup syahriyah pondok, Madrasah Diniyah Manba'ul Falah, listrik/air asrama, &amp; konsumsi makan harian.</p>
+              </div>
+              <div class="text-left sm:text-right shrink-0">
+                <span class="font-serif font-bold text-xl text-kiswah-900">Rp 450.000</span>
+                <span class="block text-[10px] uppercase tracking-wider text-kuningan-700 font-bold">Per Bulan</span>
+              </div>
+            </div>
+
+            <div class="p-4 bg-turats-200/60 border border-kuningan-500/40 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h4 class="font-serif font-bold text-base text-kiswah-950">3. Pendidikan Kesetaraan (PKPPS Wustha / 'Ulya)</h4>
+                <p class="text-xs text-jati-800/80">Khusus bagi santri yang mengambil ijazah formal negara setara SMP atau SMA.</p>
+              </div>
+              <div class="text-left sm:text-right shrink-0">
+                <span class="font-serif font-bold text-base text-kiswah-900">Sesuai Jenjang</span>
+                <span class="block text-[10px] uppercase tracking-wider text-kuningan-700 font-bold">Tersedia Keringanan Yatim/Dhuafa</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-jati-800/80 italic mt-5">
+            *Catatan: Pondok Pesantren Kyai Parak Bambu Runcing menjunjung prinsip tidak ada anak umat yang gagal mengaji karena kendala biaya. Wali santri dapat bermusyawarah saat sowan.
+          </p>
+        </div>
+
+        <!-- Kelengkapan Berkas Sowan -->
+        <div class="lg:col-span-5 kitab-frame-dark bg-kiswah-900/90 p-7 sm:p-9 flex flex-col justify-between">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-kuningan-400">Kelengkapan Administrasi</span>
+            <h3 class="font-serif text-2xl font-bold text-turats-50 mt-1 mb-5">Berkas yang Dibawa Saat Sowan</h3>
+            <ul class="space-y-3 text-sm text-turats-100">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check-double text-kuningan-400 mt-1"></i>
+                <span>Fotokopi Kartu Keluarga (KK) &amp; KTP Kedua Orang Tua (masing-masing 3 lembar).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check-double text-kuningan-400 mt-1"></i>
+                <span>Fotokopi Akta Kelahiran Calon Santri (3 lembar).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check-double text-kuningan-400 mt-1"></i>
+                <span>Fotokopi Ijazah Terakhir &amp; NISN (khusus pendaftar program PKPPS Wustha/'Ulya).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check-double text-kuningan-400 mt-1"></i>
+                <span>Pas foto berpeci hitam (Putra) / berjilbab putih (Putri) ukuran 3x4 dan 4x6 (masing-masing 4 lembar).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check-double text-kuningan-400 mt-1"></i>
+                <span>Surat Keterangan Sehat dari Puskesmas/Dokter.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8 p-4 rounded bg-kiswah-950 border border-kuningan-500/40 text-xs text-kuningan-300">
+            <i class="fa-solid fa-circle-info mr-1"></i>
+            Gelombang Pendaftaran dibuka mulai <strong>Syawal s/d Dzulhijjah 1447 H</strong> (Mei – Juli 2026).
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5I. LOKASI & KONTAK (PETA PARAKAN + DUAL WHATSAPP PUTRA & PUTRI)
+  ====================================================================== -->
+  <section id="kontak" class="py-24 px-4 sm:px-6 lg:px-8 bg-arabesque-light">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="font-arabic text-2xl text-kuningan-700 mb-1">العنوان والتواصل مع الأمانة</p>
+        <span class="text-xs font-bold uppercase tracking-[0.24em] text-kiswah-800 block mb-2">
+          ✦ Silaturahmi, Sowan &amp; Sambang Santri ✦
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-kiswah-950 font-semibold">
+          Lokasi Pondok &amp; <span class="italic font-normal text-kiswah-700">Sekretariat Resmi</span>
+        </h2>
+      </div>
+
+      <!-- DUAL CONTACT WHATSAPP (TERPISAH PUTRA & PUTRI SESUAI INSTRUKSI) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+        <!-- Sekretariat Putra -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-kiswah-900 text-kuningan-300 text-[10px] font-bold uppercase tracking-widest rounded">
+                Kompleks Santri Putra (Banin)
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">قسم البنين</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-kiswah-950 mb-2">Sekretariat Pondok Putra</h3>
+            <p class="text-sm text-jati-800/85 mb-5">
+              Layanan informasi pendaftaran santri putra, konfirmasi jadwal sowan ndalem, perizinan putra, serta administrasi Madrasah &amp; PKPPS Putra.
+            </p>
+            <div class="text-xs text-kiswah-900 space-y-1.5 mb-6 font-medium">
+              <div><i class="fa-solid fa-user-tie text-kuningan-600 w-5"></i> Pengurus: Ust. Ahmad Tajuddin &amp; Tim Sekretariat Putra</div>
+              <div><i class="fa-regular fa-clock text-kuningan-600 w-5"></i> Layanan: 08.00 – 16.00 WIB &amp; 20.00 – 22.00 WIB</div>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/6281225001965?text=Assalamu'alaikum%20Wr.%20Wb.%20Admin%20Sekretariat%20Putra%20PP%20Kyai%20Parak%20Bambu%20Runcing,%20saya%20bermaksud%20menanyakan%20jadwal%20sowan%20dan%20pendaftaran%20santri%20putra."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-4 px-6 rounded bg-[#34735e] hover:bg-kiswah-900 text-white font-sans text-xs sm:text-sm font-bold uppercase tracking-wider border-2 border-kuningan-400 shadow-lg flex items-center justify-center gap-3 transition"
+          >
+            <i class="fa-brands fa-whatsapp text-xl text-kuningan-300"></i>
+            <span>Tombol WhatsApp Sekretariat Putra</span>
+          </a>
+        </div>
+
+        <!-- Sekretariat Putri -->
+        <div class="kitab-frame bg-turats-50 p-7 sm:p-9 shadow-ornate flex flex-col justify-between">
+          <div class="corner-ornament corner-tl"></div>
+          <div class="corner-ornament corner-tr"></div>
+          <div class="corner-ornament corner-bl"></div>
+          <div class="corner-ornament corner-br"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-kuningan-600 text-white text-[10px] font-bold uppercase tracking-widest rounded">
+                Kompleks Santri Putri (Banat)
+              </span>
+              <span class="font-arabic text-xl text-kiswah-800">قسم البنات</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-kiswah-950 mb-2">Sekretariat Pondok Putri</h3>
+            <p class="text-sm text-jati-800/85 mb-5">
+              Layanan informasi pendaftaran santri putri, konfirmasi jadwal sowan ndalem, tata tertib sambang putri, serta administrasi Tahfidz &amp; Madrasah Putri.
+            </p>
+            <div class="text-xs text-kiswah-900 space-y-1.5 mb-6 font-medium">
+              <div><i class="fa-solid fa-user-check text-kuningan-600 w-5"></i> Pengurus: Ustadzah Nisa'ul Karimah &amp; Tim Sekretariat Putri</div>
+              <div><i class="fa-regular fa-clock text-kuningan-600 w-5"></i> Layanan: 08.00 – 16.00 WIB &amp; 20.00 – 21.30 WIB</div>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/6281326001965?text=Assalamu'alaikum%20Wr.%20Wb.%20Admin%20Sekretariat%20Putri%20PP%20Kyai%20Parak%20Bambu%20Runcing,%20saya%20bermaksud%20menanyakan%20jadwal%20sowan%20dan%20pendaftaran%20santri%20putri."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-4 px-6 rounded bg-kiswah-900 hover:bg-[#34735e] text-kuningan-300 hover:text-white font-sans text-xs sm:text-sm font-bold uppercase tracking-wider border-2 border-kuningan-500 shadow-lg flex items-center justify-center gap-3 transition"
+          >
+            <i class="fa-brands fa-whatsapp text-xl text-emerald-400"></i>
+            <span>Tombol WhatsApp Sekretariat Putri</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Peta Parakan Temanggung & Adab Kunjungan/Sambang -->
+      <div class="kitab-frame bg-turats-50 p-6 sm:p-10 shadow-ornate grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-5 space-y-5">
+          <span class="text-xs font-bold uppercase tracking-widest text-kuningan-700">۞ Petunjuk Arah &amp; Adab Sambang</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950">
+            Kawasan Kauman, Parakan, Kab. Temanggung
+          </h3>
+          <p class="text-sm text-jati-800/85 leading-relaxed">
+            <strong>Alamat Lengkap:</strong> Jl. KH. Subchi / Kompleks Kauman Parakan, Kec. Parakan, Kabupaten Temanggung, Jawa Tengah 56254.
+          </p>
+          <div class="p-4 bg-turats-100 border-l-4 border-kiswah-800 space-y-2 text-xs text-kiswah-950">
+            <p class="font-bold uppercase tracking-wider text-kiswah-900">Tata Tertib Kunjungan / Sambang Wali Santri:</p>
+            <p>1. Wajib mengenakan busana muslim/muslimah yang menutup aurat secara sopan (tidak ketat).</p>
+            <p>2. Waktu sambang santri dibuka pada hari <strong>Jumat &amp; Ahad (Pukul 08.00 – 16.30 WIB)</strong> di ruang tamu yang telah disediakan.</p>
+            <p>3. Wali santri tidak diperkenankan memasuki kamar asrama tanpa izin pengurus keamanan pondok.</p>
+          </div>
+          <a
+            href="https://maps.google.com/?q=Pondok+Pesantren+Kyai+Parak+Bambu+Runcing+Parakan+Temanggung"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-kiswah-900 hover:text-kuningan-700 underline underline-offset-4"
+          >
+            <i class="fa-solid fa-map-location-dot text-kuningan-600"></i>
+            <span>Buka Petunjuk Rute di Google Maps</span>
+          </a>
+        </div>
+
+        <div class="lg:col-span-7 h-80 sm:h-96 rounded overflow-hidden border-2 border-kuningan-500 shadow-inner">
+          <iframe
+            title="Peta Lokasi Pondok Pesantren Kyai Parak Bambu Runcing Parakan Temanggung"
+            src="https://www.google.com/maps?q=Parakan,+Temanggung,+Jawa+Tengah&output=embed"
+            class="w-full h-full border-0 filter sepia-[0.18] contrast-105"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       5J. FOOTER: PENUTUP GELAP (DEEP FOREST / CHARCOAL + LEGALITAS NSPP)
+  ====================================================================== -->
+  <footer class="bg-[#071510] text-turats-200 border-t-4 border-double border-kuningan-500 pt-16 pb-10 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-kuningan-500/25">
+        <!-- Identitas & Legalitas -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-full bg-kiswah-900 border-2 border-kuningan-500 flex items-center justify-center">
+              <span class="font-serif font-bold text-lg text-kuningan-300">KP</span>
+            </div>
+            <div>
+              <h4 class="font-serif font-bold text-xl text-turats-50 leading-none">Pondok Pesantren Kyai Parak</h4>
+              <span class="text-[10px] font-bold tracking-[0.28em] text-kuningan-400 uppercase">BAMBU RUNCING • PARAKAN</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-turats-200/75 leading-relaxed max-w-md">
+            Lembaga pendidikan Islam salafiyah yang didirikan oleh Almaghfurlah KH. R. Muhaiminan Gunardho pada tahun 1965 di bumi sejarah Bambu Runcing Parakan, Temanggung.
+          </p>
+          <div class="inline-block p-3 rounded bg-kiswah-950 border border-kuningan-500/40 text-xs">
+            <span class="text-kuningan-300 font-bold block">Legalitas Resmi Kementerian Agama RI:</span>
+            <span class="text-turats-100">NSPP: 510033230019 • Izop PKPPS Wustha &amp; 'Ulya Terdaftar</span>
+          </div>
+        </div>
+
+        <!-- Navigasi Ringkas -->
+        <div class="lg:col-span-3 space-y-3">
+          <h5 class="font-serif font-bold text-base text-kuningan-300 uppercase tracking-wider">Tautan Utama</h5>
+          <ul class="space-y-2 text-xs sm:text-sm text-turats-200/80">
+            <li><a href="#tentang" class="hover:text-kuningan-300 transition">۞ Sejarah &amp; Manaqib Muassis</a></li>
+            <li><a href="#pendidikan" class="hover:text-kuningan-300 transition">۞ Madrasah Manba'ul Falah</a></li>
+            <li><a href="#pendidikan" class="hover:text-kuningan-300 transition">۞ Tahfidzul Qur'an Bersanad</a></li>
+            <li><a href="#pendidikan" class="hover:text-kuningan-300 transition">۞ Pendidikan Kesetaraan (PKPPS)</a></li>
+            <li><a href="#pendidikan" class="hover:text-kuningan-300 transition">۞ Laskar Garuda Bambu Runcing</a></li>
+            <li><a href="#psb" class="hover:text-kuningan-300 transition">۞ Alur Sowan PSB 2026</a></li>
+          </ul>
+        </div>
+
+        <!-- Media Sosial & Maklumat -->
+        <div class="lg:col-span-4 space-y-4">
+          <h5 class="font-serif font-bold text-base text-kuningan-300 uppercase tracking-wider">Siaran &amp; Media Resmi</h5>
+          <p class="text-xs text-turats-200/75 leading-relaxed">
+            Ikuti dokumentasi pengajian selapanan, kajian kitab kuning, dan warta kegiatan santri melalui kanal media resmi pesantren:
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="#kontak" aria-label="YouTube" class="w-10 h-10 rounded-full bg-kiswah-900 border border-kuningan-500/50 hover:border-kuningan-300 flex items-center justify-center text-kuningan-300 transition">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="#kontak" aria-label="Instagram" class="w-10 h-10 rounded-full bg-kiswah-900 border border-kuningan-500/50 hover:border-kuningan-300 flex items-center justify-center text-kuningan-300 transition">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#kontak" aria-label="Facebook" class="w-10 h-10 rounded-full bg-kiswah-900 border border-kuningan-500/50 hover:border-kuningan-300 flex items-center justify-center text-kuningan-300 transition">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#kontak" aria-label="TikTok" class="w-10 h-10 rounded-full bg-kiswah-900 border border-kuningan-500/50 hover:border-kuningan-300 flex items-center justify-center text-kuningan-300 transition">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+          <p class="font-arabic text-lg text-kuningan-300/90 pt-2">
+            نفعنا الله بعلومهم وبارك فيهم في الدارين آمين
+          </p>
+        </div>
+      </div>
+
+      <!-- Hak Cipta -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-turats-200/60">
+        <p>© 2026 Pondok Pesantren Kyai Parak Bambu Runcing — Parakan, Temanggung. Seluruh Hak Cipta Dilindungi.</p>
+        <p class="text-kuningan-400/80">Langgam Visual: Royal Kraton &amp; Kitab Turats Nusantara</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       MODAL INTERAKTIF (UNTUK DETAIL KURIKULUM & BACA ARTIKEL)
+  ====================================================================== -->
+  <div id="custom-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-kiswah-950/80 backdrop-blur-sm">
+    <div class="kitab-frame bg-turats-50 max-w-2xl w-full p-6 sm:p-10 shadow-2xl relative max-h-[85vh] overflow-y-auto">
+      <div class="corner-ornament corner-tl"></div>
+      <div class="corner-ornament corner-tr"></div>
+      <div class="corner-ornament corner-bl"></div>
+      <div class="corner-ornament corner-br"></div>
+
+      <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-kiswah-900 text-kuningan-300 flex items-center justify-center hover:bg-kiswah-800">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modal-body" class="space-y-4 text-kiswah-950"></div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       JAVASCRIPT INTERAKTIF
+  ====================================================================== -->
+  <script>
+    // 1. Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    mobileBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+    });
+
+    // 2. Data & Fungsi Tab Jadwal Harian Santri (Wirdul Yaumi)
+    const scheduleData = {
+      subuh: [
+        { time: '03.30 – 04.30 WIB', title: 'Qiyamul Lail & Mujahadah', desc: 'Bangun dini hari, sholat tahajud, witir, dan istighotsah menjelang waktu subuh.' },
+        { time: '04.30 – 05.30 WIB', title: 'Jamaah Subuh & Wirid', desc: 'Sholat Subuh berjamaah dilanjutkan pembacaan hizib dan wirid pagi.' },
+        { time: '05.30 – 07.00 WIB', title: 'Setoran Tahfidz & Sorogan', desc: 'Setoran ziyadah Al-Qur\'an bagi santri tahfidz dan sorogan kitab dasar.' },
+        { time: '07.30 – 12.00 WIB', title: 'PKPPS & Pengajian Dhuha', desc: 'Kegiatan belajar Pendidikan Kesetaraan (Wustha/\'Ulya) dan kajian kitab kuning pagi.' }
+      ],
+      siang: [
+        { time: '12.00 – 13.00 WIB', title: 'Jamaah Dzuhur & Lalaran', desc: 'Sholat Dzuhur berjamaah dilanjutkan lalaran nadhom (Jurumiyah/Imrithi/Alfiyah).' },
+        { time: '13.30 – 15.00 WIB', title: 'Istirahat Qailulah', desc: 'Istirahat siang guna menjaga kebugaran fisik santri untuk kegiatan sore dan malam.' },
+        { time: '15.15 – 16.00 WIB', title: 'Jamaah Ashar & Hizib', desc: 'Sholat Ashar berjamaah dilanjutkan pembacaan wirid sore.' },
+        { time: '16.00 – 17.15 WIB', title: 'Pengajian Sore & LGBR', desc: 'Ngaji bandongan kitab fiqih/tasawuf atau latihan rutin pencak silat LGBR.' }
+      ],
+      malam: [
+        { time: '17.45 – 19.00 WIB', title: 'Jamaah Maghrib & Tadarus', desc: 'Sholat Maghrib berjamaah, pembacaan Rotib/Yasin, dan murajaah Al-Qur\'an.' },
+        { time: '19.00 – 19.30 WIB', title: 'Jamaah Isya', desc: 'Pelaksanaan Sholat Isya berjamaah di Masjid Jami\' Pondok.' },
+        { time: '19.45 – 21.30 WIB', title: 'Madrasah Manba\'ul Falah', desc: 'Kegiatan belajar mengajar diniyah berjenjang (Ibtida\'iyah, Tsanawiyah, \'Aliyah).' },
+        { time: '21.30 – 22.30 WIB', title: 'Musyawarah (Syawir) Kitab', desc: 'Diskusi dan bedah isi kitab kuning antar santri sebelum istirahat malam.' }
+      ]
+    };
+
+    function switchSchedule(period) {
+      const container = document.getElementById('schedule-content');
+      container.innerHTML = scheduleData[period].map(item => `
+        <div class="p-4 bg-turats-100 border border-kuningan-500/50 rounded relative">
+          <span class="inline-block px-2.5 py-0.5 bg-kiswah-900 text-kuningan-300 text-[11px] font-bold rounded mb-2">
+            ${item.time}
+          </span>
+          <h4 class="font-serif font-bold text-lg text-kiswah-950 mb-1">${item.title}</h4>
+          <p class="text-xs text-jati-800/85 leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+
+      // Update active button styling
+      ['subuh', 'siang', 'malam'].forEach(key => {
+        const btn = document.getElementById('tab-' + key);
+        if (key === period) {
+          btn.className = 'sched-btn px-4 py-2 rounded bg-kiswah-900 text-kuningan-300 text-xs font-bold uppercase tracking-wider border border-kuningan-500 transition';
+        } else {
+          btn.className = 'sched-btn px-4 py-2 rounded bg-turats-200 text-kiswah-950 text-xs font-bold uppercase tracking-wider border border-kuningan-500/40 hover:bg-turats-300 transition';
+        }
+      });
+    }
+    // Inisialisasi jadwal pertama
+    switchSchedule('subuh');
+
+    // 3. Modal Detail Program & Artikel
+    const programDetails = {
+      manbaul: {
+        subtitle: 'Jalur 01 • Diniyah Salafiyah Murni',
+        title: "Kurikulum Madrasah Manba'ul Falah",
+        content: `
+          <p class="text-sm leading-relaxed">Madrasah Manba'ul Falah merupakan jantung keilmuan Pondok Pesantren Kyai Parak Bambu Runcing yang dibagi dalam tiga tingkatan:</p>
+          <ul class="list-disc pl-5 text-sm space-y-2 mt-3">
+            <li><strong>Marhalah Ibtida'iyah (Dasar):</strong> Aqidatul Awam, Safinatun Najah, Mabadi'ul Fiqhiyyah, Jurumiyah, Amtsilah Tashrifiyah, dan Akhlakul Banin/Banat.</li>
+            <li><strong>Marhalah Tsanawiyah (Menengah):</strong> Fathul Qarib, Nadhom Imrithi, Alfiyah Ibnu Malik (Juz 1), Riyadlus Shalihin, Ta'limul Muta'allim, dan Jawahirul Kalamiyah.</li>
+            <li><strong>Marhalah 'Aliyah (Lanjut):</strong> Fathul Mu'in, Alfiyah Ibnu Malik (Juz 2), Faroidul Bahiyah (Qawaid Fiqhiyyah), Lathaiful Isyarat (Ushul Fiqih), dan Minhajul 'Abidin / Ihya' Ulumuddin.</li>
+          </ul>
+        `
+      },
+      tahfidz: {
+        subtitle: 'Jalur 02 • Tahfidzul Qur\'an Bersanad',
+        title: 'Metode Tahfidz & Sanad Al-Qur\'an',
+        content: `
+          <p class="text-sm leading-relaxed">Pembinaan Al-Qur'an dilaksanakan dengan mengutamakan ketepatan tajwid, makharijul huruf, dan kelancaran hafalan (mutqin):</p>
+          <ul class="list-disc pl-5 text-sm space-y-2 mt-3">
+            <li><strong>Tahap Bin-Nadzar:</strong> Wajib lulus tashih bacaan 30 juz beserta penguasaan matan Tuhfatul Athfal dan Muqaddimah Jazariyah.</li>
+            <li><strong>Tahap Bil-Ghaib:</strong> Setoran hafalan baru (ziyadah) setiap ba'da Subuh dan murajaah hafalan lama setiap ba'da Maghrib.</li>
+            <li><strong>Ujian Sima'an:</strong> Setiap kelipatan 5 juz, santri melakukan sima'an terbuka sebelum melanjutkan ke juz berikutnya.</li>
+          </ul>
+        `
+      },
+      pkpps: {
+        subtitle: 'Jalur 03 • Pendidikan Formal Kesetaraan Kemenag RI',
+        title: "PKPPS Tingkat Wustha (SMP) & 'Ulya (SMA)",
+        content: `
+          <p class="text-sm leading-relaxed">Memberikan jaminan masa depan akademik bagi santri salaf melalui ijazah resmi negara tanpa mengurangi porsi mengaji kitab kuning:</p>
+          <ul class="list-disc pl-5 text-sm space-y-2 mt-3">
+            <li><strong>PKPPS Wustha:</strong> Setara jenjang SMP/MTs (3 Tahun), terdata resmi di EMIS Kementerian Agama RI.</li>
+            <li><strong>PKPPS 'Ulya:</strong> Setara jenjang SMA/MA (3 Tahun), ijazah diakui untuk pendaftaran PTN, PTKIN (UIN/IAIN), Universitas Al-Azhar Mesir, hingga dunia kerja.</li>
+          </ul>
+        `
+      },
+      lgbr: {
+        subtitle: 'Jalur 04 • Warisan Khas Bumi Bambu Runcing',
+        title: 'Laskar Garuda Bambu Runcing (LGBR)',
+        content: `
+          <p class="text-sm leading-relaxed">LGBR bukan sekadar perguruan silat, melainkan warisan riyadhah jasmani dan ruhani Pondok Pesantren Kyai Parak Bambu Runcing:</p>
+          <ul class="list-disc pl-5 text-sm space-y-2 mt-3">
+            <li><strong>Pencak Silat Tradisional:</strong> Jurus-jurus bela diri nusantara untuk menjaga kesehatan dan ketangkasan fisik.</li>
+            <li><strong>Olah Pernafasan & Riyadloh:</strong> Penguatan mental dan ketenangan batin yang dipadukan dengan wirid penjagaan diri.</li>
+            <li><strong>Sumpah Kesatria Santri:</strong> Dilarang keras menyombongkan diri; ilmu bela diri semata-mata untuk membela kebenaran, ulama, dan bangsa.</li>
+          </ul>
+        `
+      }
+    };
+
+    const articleDetails = [
+      {
+        subtitle: '12 Syawal 1447 H • Lajnah Bahtsul Masa\'il',
+        title: 'Menjawab Problematika Muamalah Digital melalui Lensa Kitab Fathul Mu\'in',
+        content: `<p class="text-sm leading-relaxed">Dalam forum Bahtsul Masa'il yang digelar di serambi Masjid Jami' Pondok Pesantren Kyai Parak Bambu Runcing, para santri tingkat 'Aliyah membedah berbagai skema transaksi keuangan digital kontemporer. Dengan merujuk pada ibarat-ibarat dalam kitab <em>Fathul Mu'in</em> dan <em>I'anatuth Thalibin</em>, santri dilatih memeriksa syarat sahnya <em>shighat</em> (ijab qabul) serta kejelasan objek akad (<em>ma'qud 'alaih</em>) agar masyarakat terhindar dari praktik gharar dan riba.</p>`
+      },
+      {
+        subtitle: '28 Ramadhan 1447 H • Warta Tahfidz',
+        title: 'Khataman Kubro & Sima\'an Al-Qur\'an 30 Juz Bil-Ghaib Santri Putra-Putri',
+        content: `<p class="text-sm leading-relaxed">Majelis Khataman Al-Qur'an berlangsung khidmat dihadiri oleh dewan masyayikh, wali santri, dan masyarakat Kauman Parakan. Para santri yang telah menuntaskan setoran 30 juz bil-ghaib mendapatkan nasihat khusus mengenai kewajiban menjaga hafalan sepanjang hayat melalui wirid murajaah harian.</p>`
+      },
+      {
+        subtitle: '04 Syawal 1447 H • Khazanah Sejarah',
+        title: 'Jejak Tirakat Ulama Parakan dan Rahasia Ruhani di Balik Bambu Runcing 1945',
+        content: `<p class="text-sm leading-relaxed">Pada masa revolusi fisik mempertahankan kemerdekaan, ribuan pemuda dan laskar Hizbullah-Sabilillah berdatangan ke Parakan, Temanggung. Para ulama sepuh memimpin mujahadah, membekali para pejuang dengan bambu runcing yang telah didoakan, serta menanamkan keyakinan tauhid bahwa membela tanah air adalah bagian dari iman.</p>`
+      }
+    ];
+
+    function openProgramModal(key) {
+      const item = programDetails[key];
+      const modalBody = document.getElementById('modal-body');
+      modalBody.innerHTML = `
+        <span class="text-xs font-bold uppercase tracking-widest text-kuningan-700">${item.subtitle}</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 border-b border-kuningan-500/40 pb-3">${item.title}</h3>
+        <div class="text-jati-900 space-y-3 pt-2">${item.content}</div>
+      `;
+      const modal = document.getElementById('custom-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openArticleModal(idx) {
+      const item = articleDetails[idx];
+      const modalBody = document.getElementById('modal-body');
+      modalBody.innerHTML = `
+        <span class="text-xs font-bold uppercase tracking-widest text-kuningan-700">${item.subtitle}</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-kiswah-950 border-b border-kuningan-500/40 pb-3">${item.title}</h3>
+        <div class="text-jati-900 space-y-3 pt-2">${item.content}</div>
+      `;
+      const modal = document.getElementById('custom-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('custom-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+
+  <script id="submenu-js">
+    /* ===== Sub menu: klik/hover menu utama untuk membuka daftar halaman turunan ===== */
+    (() => {
+      const MOCKUP = true; // ubah ke false saat halaman turunan sudah dibuat, agar tautan berpindah halaman
+      const dds = [...document.querySelectorAll('[data-dd]')];
+      const hoverable = matchMedia('(hover: hover)');
+      const setOpen = (d, on) => { d.classList.toggle('open', on); d.querySelector('.dd-btn').setAttribute('aria-expanded', String(on)); };
+      const closeAll = (except) => dds.forEach((d) => { if (d !== except) setOpen(d, false); });
+      /* Jaga panel tetap di dalam layar */
+      const fit = (d) => {
+        const p = d.querySelector('.dd-panel'), box = p.firstElementChild, a = d.getBoundingClientRect(), m = 12;
+        const w = box.offsetWidth;
+        const left = p.classList.contains('dd-right') ? a.right + 16 - w : a.left + a.width / 2 - w / 2;
+        let shift = 0;
+        if (left < m) shift = m - left; else if (left + w > innerWidth - m) shift = innerWidth - m - (left + w);
+        p.style.setProperty('--dd-shift', shift + 'px');
+      };
+      addEventListener('resize', () => dds.forEach(fit));
+      dds.forEach((d) => {
+        const btn = d.querySelector('.dd-btn');
+        btn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); fit(d); const on = !d.classList.contains('open'); closeAll(d); setOpen(d, on); if (on && e.detail === 0) d.querySelector('.dd-panel a')?.focus(); });
+        d.addEventListener('mouseenter', () => { fit(d); if (hoverable.matches) closeAll(d); });
+        fit(d);
+        d.addEventListener('mouseleave', () => { if (hoverable.matches) setOpen(d, false); });
+        d.addEventListener('focusout', (e) => { if (!d.contains(e.relatedTarget)) setOpen(d, false); });
+      });
+      document.addEventListener('click', (e) => { if (!e.target.closest('[data-dd]')) closeAll(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape') return;
+        const open = document.querySelector('[data-dd].open');
+        if (open) { closeAll(); open.querySelector('.dd-btn').focus(); }
+      });
+
+      /* Akordeon sub menu di drawer mobile */
+      document.querySelectorAll('.m-acc').forEach((b) => b.addEventListener('click', () => {
+        const panel = document.getElementById(b.getAttribute('aria-controls'));
+        const on = b.getAttribute('aria-expanded') !== 'true';
+        b.setAttribute('aria-expanded', String(on)); panel.hidden = !on;
+      }));
+
+      /* Mockup: halaman turunan belum dibuat, tampilkan tujuan URL-nya saja */
+      if (!MOCKUP) return;
+      const toast = document.createElement('div'); toast.id = 'pageToast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast);
+      let t;
+      document.querySelectorAll('a[data-page]').forEach((a) => a.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopImmediatePropagation(); closeAll();
+        toast.innerHTML = 'Menuju <code>' + a.getAttribute('href') + '</code> — halaman belum dibuat';
+        toast.classList.add('show'); clearTimeout(t); t = setTimeout(() => toast.classList.remove('show'), 2400);
+      }, true));
+    })();
+  </script>
+</body>
+</html>
